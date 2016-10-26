@@ -1,0 +1,141 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#c7c7c7"
+    tools:context="net.ordesk.ordesk_vivino.welcome_info"
+    android:id="@+id/welcome_info_frameLayout">
+
+    <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+    <FrameLayout android:layout_height="match_parent"
+        android:layout_width="780dp"
+        android:layout_marginTop="65dp">
+
+        <TextView
+            android:text="here we enter basic info about the application and how to use  it"
+            android:layout_width="385dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView5"
+            android:textSize="25sp"
+            android:layout_marginTop="190dp"
+            android:layout_marginStart="200dp" />
+
+        <TextView
+            android:text="INFO VIEW"
+            android:textColor="#000000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView3"
+            android:textSize="60sp"
+            android:layout_marginStart="250dp"
+            android:layout_marginTop="110dp" />
+    </FrameLayout>
+
+    <FrameLayout android:layout_height="match_parent"
+        android:background="#734f37"
+        android:layout_marginStart="780dp"
+        android:layout_width="match_parent">
+
+        <ImageView
+            android:layout_height="214dp"
+            app:srcCompat="@drawable/vivinologo"
+            android:id="@+id/payimageView"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="-30dp"
+            android:layout_width="220dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="215dp"
+            app:srcCompat="@drawable/goldstar"
+            android:id="@+id/payimageView2"
+            android:layout_marginTop="350dp" />
+
+        <TextView
+            android:text="Advertise Here"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/paytextView"
+            android:layout_marginTop="280dp"
+            android:textSize="26sp"
+            android:layout_marginStart="22dp" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:background="#000000"
+        android:layout_height="65dp"
+        android:layout_width="780dp"
+        android:weightSum="1">
+
+        <FrameLayout
+            android:layout_height="match_parent"
+            android:layout_weight="0.45"
+            android:layout_width="50dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:srcCompat="@android:drawable/ic_menu_info_details"
+                android:id="@+id/imageView4" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/imageButton_back"
+                android:background="#00000000" />
+
+        </FrameLayout>
+
+        <ImageButton
+            android:background="#000000"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/info_order_imageButton"
+            app:srcCompat="@drawable/orderbtn"
+            android:soundEffectsEnabled="true"/>
+
+        <ImageButton
+            android:background="#000000"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/paybtn"
+            android:id="@+id/info_pay_imageButton"
+            android:paddingStart="10dp"
+            android:soundEffectsEnabled="true" />
+
+        <ImageButton
+            android:background="#000000"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/playbtn"
+            android:id="@+id/payimageButton5"
+            android:paddingStart="10dp"
+            android:paddingLeft="10dp"
+            android:soundEffectsEnabled="true" />
+
+        <ImageButton
+            android:background="#000000"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/servicebtn"
+            android:id="@+id/payimageButton2"
+            android:paddingStart="10dp" />
+
+        <ImageButton
+            android:background="#000000"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/cartbtn"
+            android:id="@+id/payimageButton10"
+            android:layout_width="60dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="-25dp" />
+
+    </LinearLayout>
+
+    <!-- This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows. -->
+
+</FrameLayout>

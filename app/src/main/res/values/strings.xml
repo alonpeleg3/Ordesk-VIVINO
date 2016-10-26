@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Ordesk-VIVINO</string>
+
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="title_activity_order_screen">order_screen</string>
+
+    <string name="title_activity_pay_screen">pay_screen</string>
+
+    <string name="title_activity_welcome_info">welcome_info</string>
+</resources>

@@ -1,0 +1,2102 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context="net.ordesk.ordesk_vivino.order_screen"
+    android:id="@+id/order_framelayout">
+
+    <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+
+    <FrameLayout android:layout_height="match_parent"
+        android:background="#734f37"
+        android:layout_marginStart="780dp"
+        android:layout_width="match_parent"
+        android:id="@+id/info_and_add">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginTop="150dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:text="לבחירת פריטים מהתפריט לחצו על "
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/cartokbtn"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="10dp" />
+
+            </LinearLayout>
+        </FrameLayout>
+
+        <ViewFlipper
+            android:layout_height="244dp"
+            android:layout_marginTop="350dp"
+            android:autoStart="true"
+            android:animateFirstView="true"
+            android:clickable="true"
+            android:layout_width="match_parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/goldstar" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/carpacho" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/pizza" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/steak" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/salad1" />
+
+        </ViewFlipper>
+
+        <ImageView
+            android:layout_height="214dp"
+            app:srcCompat="@drawable/vivinologo"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="-30dp"
+            android:layout_width="220dp" />
+
+        <TextView
+            android:text="Advertise Here"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="315dp"
+            android:textSize="26sp"
+            android:layout_marginStart="35dp" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:background="#000000"
+        android:layout_height="65dp"
+        android:layout_width="780dp"
+        android:weightSum="1"
+        android:id="@+id/nav_bar">
+
+        <FrameLayout
+            android:layout_height="match_parent"
+            android:layout_weight="0.45"
+            android:layout_width="50dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:srcCompat="@android:drawable/ic_menu_info_details" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/imageButton_back"
+                android:background="#00000000" />
+
+        </FrameLayout>
+
+        <ImageButton
+            android:background="#000000"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/imageButton3"
+            app:srcCompat="@drawable/orderbtnpush"
+            android:soundEffectsEnabled="true" />
+
+        <ImageButton
+            android:background="#000000"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/paybtn"
+            android:id="@+id/order_pay_imageButton"
+            android:paddingStart="10dp"
+            android:soundEffectsEnabled="true" />
+
+        <ImageButton
+            android:background="#000000"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/playbtn"
+            android:id="@+id/imageButton5"
+            android:paddingStart="10dp"
+            android:soundEffectsEnabled="true" />
+
+        <ImageButton
+            android:background="#000000"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/servicebtn"
+            android:id="@+id/imageButton2"
+            android:paddingStart="10dp" />
+
+        <ImageButton
+            android:background="#000000"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/cartbtn"
+            android:id="@+id/imageButton10"
+            android:layout_width="60dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="-25dp" />
+
+    </LinearLayout>
+
+    <ScrollView android:layout_height="match_parent"
+        android:layout_width="780dp"
+        android:layout_marginTop="65dp"
+        android:id="@+id/Menu">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/appetizer">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/sideiconleft"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginStart="286dp" />
+
+                <TextView
+                    android:text="פתיחה"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="35sp"
+                    android:layout_marginStart="10dp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/sideiconright"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginStart="10dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <FrameLayout
+                    android:background="#afabab"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="10dp"
+                    android:soundEffectsEnabled="true"
+                    android:layout_width="355dp"
+                    android:layout_height="155dp"
+                    android:id="@+id/item11">
+
+
+                    <FrameLayout
+                        android:background="#ffffff"
+                        android:layout_width="345dp"
+                        android:layout_height="145dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp">
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="200dp"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:text="גולדסטאר מהחבית\n 0.5L/0.33L"
+                                    android:textSize="20dp"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/menu_item_head"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="65dp"
+                                    android:textStyle="bold"
+                                    android:paddingTop="15dp"
+                                    android:id="@+id/item11_desc"
+                                    android:contentDescription="גולדסטאר מהחבית  0.5L/0.33L" />
+
+                                <LinearLayout
+                                    android:orientation="horizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <FrameLayout
+                                        android:layout_width="40dp"
+                                        android:background="#9f9f9f"
+                                        android:layout_marginTop="35dp"
+                                        android:layout_marginStart="2dp"
+                                        android:id="@+id/frmlout11"
+                                        android:layout_height="40dp">
+
+                                        <ImageView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            app:srcCompat="@drawable/add2cartbtn" />
+
+                                        <Button
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="match_parent"
+                                            android:id="@+id/nemu_item_addToCartButton11"
+                                            android:background="#00000000" />
+
+                                    </FrameLayout>
+
+                                    <TextView
+                                        android:text="\nמחיר:  10שח"
+                                        android:textSize="20dp"
+                                        android:textAlignment="center"
+                                        android:textColor="#000000"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:textDirection="rtl"
+                                        android:layout_weight="1" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    app:srcCompat="@drawable/goldstar"
+                                    android:layout_marginRight="0dp"
+                                    android:layout_weight="1"
+                                    android:elevation="0dp" />
+
+                                <Button
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="#00FFFFFF"
+                                    android:id="@+id/itm11_lrg_btn" />
+                            </FrameLayout>
+
+                        </LinearLayout>
+
+                    </FrameLayout>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:background="#afabab"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:soundEffectsEnabled="true"
+                    android:layout_width="355dp"
+                    android:layout_height="155dp"
+                    android:id="@+id/item12">
+
+                    <FrameLayout
+                        android:background="#ffffff"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_height="145dp"
+                        android:layout_width="345dp">
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="200dp"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:text="פיצה טעימה אש עם בשר"
+                                    android:textSize="20dp"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/menu_item_head"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="65dp"
+                                    android:textStyle="bold"
+                                    android:paddingTop="15dp"
+                                    android:id="@+id/item12_desc"
+                                    android:contentDescription="פיצה טעימה אש עם בשר" />
+
+                                <LinearLayout
+                                    android:orientation="horizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <FrameLayout
+                                        android:layout_width="40dp"
+                                        android:background="#9f9f9f"
+                                        android:layout_marginTop="35dp"
+                                        android:layout_marginStart="2dp"
+                                        android:id="@+id/frmlout12"
+                                        android:layout_height="40dp">
+
+                                        <ImageView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            app:srcCompat="@drawable/add2cartbtn"/>
+
+                                        <Button
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="match_parent"
+                                            android:id="@+id/nemu_item_addToCartButton12"
+                                            android:background="#00000000" />
+
+                                    </FrameLayout>
+
+                                    <TextView
+                                        android:text="\nמחיר:  10שח"
+                                        android:textSize="20dp"
+                                        android:textAlignment="center"
+                                        android:textColor="#000000"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:textDirection="rtl"
+                                        android:layout_weight="1" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="0dp"
+                            android:layout_marginStart="200dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                app:srcCompat="@drawable/pizza"
+                                android:layout_weight="1" />
+
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="#00FFFFFF"
+                                android:id="@+id/itm12_lrg_btn" />
+                        </FrameLayout>
+                    </FrameLayout>
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <FrameLayout
+                    android:background="#afabab"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="10dp"
+                    android:soundEffectsEnabled="true"
+                    android:layout_width="355dp"
+                    android:layout_height="155dp"
+                    android:id="@+id/item13">
+
+
+                    <FrameLayout
+                        android:background="#ffffff"
+                        android:layout_width="345dp"
+                        android:layout_height="145dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp">
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="200dp"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:text="קרפאצ'ו בקר"
+                                    android:textSize="20dp"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/menu_item_head"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="65dp"
+                                    android:textStyle="bold"
+                                    android:paddingTop="15dp"
+                                    android:id="@+id/item13_desc"
+                                    android:contentDescription="קרפאצ'ו בקר" />
+
+                                <LinearLayout
+                                    android:orientation="horizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <FrameLayout
+                                        android:layout_width="40dp"
+                                        android:background="#9f9f9f"
+                                        android:layout_marginTop="35dp"
+                                        android:layout_marginStart="2dp"
+                                        android:id="@+id/frmlout13"
+                                        android:layout_height="40dp">
+
+                                        <ImageView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            app:srcCompat="@drawable/add2cartbtn" />
+
+                                        <Button
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="match_parent"
+                                            android:id="@+id/nemu_item_addToCartButton13"
+                                            android:background="#00000000" />
+
+                                    </FrameLayout>
+
+                                    <TextView
+                                        android:text="\nמחיר:  15שח"
+                                        android:textSize="20dp"
+                                        android:textAlignment="center"
+                                        android:textColor="#000000"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:textDirection="rtl"
+                                        android:layout_weight="1" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    app:srcCompat="@drawable/carpacho"
+                                    android:layout_marginRight="0dp"
+                                    android:layout_weight="1"
+                                    android:elevation="0dp" />
+
+                                <Button
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="#00FFFFFF"
+                                    android:id="@+id/itm13_lrg_btn" />
+                            </FrameLayout>
+
+                        </LinearLayout>
+
+                    </FrameLayout>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:background="#afabab"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:soundEffectsEnabled="true"
+                    android:layout_width="355dp"
+                    android:layout_height="155dp"
+                    android:id="@+id/item14">
+
+                    <FrameLayout
+                        android:background="#ffffff"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_height="145dp"
+                        android:layout_width="345dp">
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="200dp"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:text="סטייק ציידים"
+                                    android:textSize="20dp"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/menu_item_head"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="65dp"
+                                    android:textStyle="bold"
+                                    android:paddingTop="15dp"
+                                    android:id="@+id/item14_desc"
+                                    android:contentDescription="סטייק ציידים" />
+
+                                <LinearLayout
+                                    android:orientation="horizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <FrameLayout
+                                        android:layout_width="40dp"
+                                        android:background="#9f9f9f"
+                                        android:layout_marginTop="35dp"
+                                        android:layout_marginStart="2dp"
+                                        android:id="@+id/frmlout14"
+                                        android:layout_height="40dp">
+
+                                        <ImageView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            app:srcCompat="@drawable/add2cartbtn"/>
+
+                                        <Button
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="match_parent"
+                                            android:id="@+id/nemu_item_addToCartButton14"
+                                            android:background="#00000000" />
+
+                                    </FrameLayout>
+
+                                    <TextView
+                                        android:text="\nמחיר:  60שח"
+                                        android:textSize="20dp"
+                                        android:textAlignment="center"
+                                        android:textColor="#000000"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:textDirection="rtl"
+                                        android:layout_weight="1" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="0dp"
+                            android:layout_marginStart="200dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                app:srcCompat="@drawable/steak"
+                                android:layout_weight="1" />
+
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="#00FFFFFF"
+                                android:id="@+id/itm14_lrg_btn" />
+                        </FrameLayout>
+                    </FrameLayout>
+                </FrameLayout>
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/appetizer_end">
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/salads">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/sideiconleft"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginStart="290dp" />
+
+                <TextView
+                    android:text="סלטים"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="35sp"
+                    android:layout_marginStart="10dp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/sideiconright"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginStart="10dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <FrameLayout
+                    android:background="#afabab"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="10dp"
+                    android:soundEffectsEnabled="true"
+                    android:layout_width="355dp"
+                    android:layout_height="155dp"
+                    android:id="@+id/item21">
+
+
+                    <FrameLayout
+                        android:background="#ffffff"
+                        android:layout_width="345dp"
+                        android:layout_height="145dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp">
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="200dp"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:text="סלט ציידים"
+                                    android:textSize="20dp"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/menu_item_head"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:paddingTop="15dp" />
+
+                                <TextView
+                                    android:text="\nמחיר:  15שח"
+                                    android:textSize="20dp"
+                                    android:textAlignment="center"
+                                    android:textColor="#000000"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:textDirection="rtl"/>
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:srcCompat="@drawable/salad1"
+                            android:layout_marginRight="0dp"
+                            android:layout_marginStart="200dp"
+                            android:layout_weight="1" />
+
+                    </FrameLayout>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:background="#afabab"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:soundEffectsEnabled="true"
+                    android:layout_width="355dp"
+                    android:layout_height="155dp"
+                    android:id="@+id/item22">
+
+                    <FrameLayout
+                        android:background="#ffffff"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_height="145dp"
+                        android:layout_width="345dp">
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="200dp"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:text="סלט ציידות"
+                                    android:textSize="20dp"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/menu_item_head"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:paddingTop="15dp" />
+
+                                <TextView
+                                    android:text="\nמחיר:  20שח"
+                                    android:textSize="20dp"
+                                    android:textAlignment="center"
+                                    android:textColor="#000000"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:textDirection="rtl" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:srcCompat="@drawable/salad2"
+                            android:layout_marginRight="0dp"
+                            android:layout_marginStart="200dp"
+                            android:layout_weight="1" />
+
+                    </FrameLayout>
+                </FrameLayout>
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/salads_end">
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/soups">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/sideiconleft"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginStart="290dp" />
+
+                <TextView
+                    android:text="מרקים"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="35sp"
+                    android:layout_marginStart="10dp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/sideiconright"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginStart="10dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <FrameLayout
+                    android:background="#afabab"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="10dp"
+                    android:soundEffectsEnabled="true"
+                    android:layout_width="355dp"
+                    android:layout_height="155dp"
+                    android:id="@+id/item31">
+
+
+                    <FrameLayout
+                        android:background="#ffffff"
+                        android:layout_width="345dp"
+                        android:layout_height="145dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp">
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="200dp"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:text="סלט ציידים"
+                                    android:textSize="20dp"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/menu_item_head"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:paddingTop="15dp" />
+
+                                <TextView
+                                    android:text="\nמחיר:  15שח"
+                                    android:textSize="20dp"
+                                    android:textAlignment="center"
+                                    android:textColor="#000000"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:textDirection="rtl"/>
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:srcCompat="@drawable/salad1"
+                            android:layout_marginRight="0dp"
+                            android:layout_marginStart="200dp"
+                            android:layout_weight="1" />
+
+                    </FrameLayout>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:background="#afabab"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:soundEffectsEnabled="true"
+                    android:layout_width="355dp"
+                    android:layout_height="155dp"
+                    android:id="@+id/item32">
+
+                    <FrameLayout
+                        android:background="#ffffff"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_height="145dp"
+                        android:layout_width="345dp">
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="200dp"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:text="סלט ציידות"
+                                    android:textSize="20dp"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/menu_item_head"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:paddingTop="15dp" />
+
+                                <TextView
+                                    android:text="\nמחיר:  20שח"
+                                    android:textSize="20dp"
+                                    android:textAlignment="center"
+                                    android:textColor="#000000"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:textDirection="rtl" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:srcCompat="@drawable/salad2"
+                            android:layout_marginRight="0dp"
+                            android:layout_marginStart="200dp"
+                            android:layout_weight="1" />
+
+                    </FrameLayout>
+                </FrameLayout>
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/soups_end">
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/pizza">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/sideiconleft"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginStart="295dp" />
+
+                <TextView
+                    android:text="פיצות"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="35sp"
+                    android:layout_marginStart="10dp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/sideiconright"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginStart="10dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <FrameLayout
+                    android:background="#afabab"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="10dp"
+                    android:soundEffectsEnabled="true"
+                    android:layout_width="355dp"
+                    android:layout_height="155dp"
+                    android:id="@+id/item41">
+
+
+                    <FrameLayout
+                        android:background="#ffffff"
+                        android:layout_width="345dp"
+                        android:layout_height="145dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp">
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="200dp"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:text="סלט ציידים"
+                                    android:textSize="20dp"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/menu_item_head"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:paddingTop="15dp" />
+
+                                <TextView
+                                    android:text="\nמחיר:  15שח"
+                                    android:textSize="20dp"
+                                    android:textAlignment="center"
+                                    android:textColor="#000000"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:textDirection="rtl"/>
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:srcCompat="@drawable/salad1"
+                            android:layout_marginRight="0dp"
+                            android:layout_marginStart="200dp"
+                            android:layout_weight="1" />
+
+                    </FrameLayout>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:background="#afabab"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:soundEffectsEnabled="true"
+                    android:layout_width="355dp"
+                    android:layout_height="155dp"
+                    android:id="@+id/item42">
+
+                    <FrameLayout
+                        android:background="#ffffff"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_height="145dp"
+                        android:layout_width="345dp">
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="200dp"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:text="סלט ציידות"
+                                    android:textSize="20dp"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/menu_item_head"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:paddingTop="15dp" />
+
+                                <TextView
+                                    android:text="\nמחיר:  20שח"
+                                    android:textSize="20dp"
+                                    android:textAlignment="center"
+                                    android:textColor="#000000"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:textDirection="rtl" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:srcCompat="@drawable/salad2"
+                            android:layout_marginRight="0dp"
+                            android:layout_marginStart="200dp"
+                            android:layout_weight="1" />
+
+                    </FrameLayout>
+                </FrameLayout>
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/pizza_end">
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/pasta">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/sideiconleft"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginStart="295dp" />
+
+                <TextView
+                    android:text="פסטה"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="35sp"
+                    android:layout_marginStart="10dp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/sideiconright"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginStart="10dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <FrameLayout
+                    android:background="#afabab"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="10dp"
+                    android:soundEffectsEnabled="true"
+                    android:layout_width="355dp"
+                    android:layout_height="155dp"
+                    android:id="@+id/item51">
+
+
+                    <FrameLayout
+                        android:background="#ffffff"
+                        android:layout_width="345dp"
+                        android:layout_height="145dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp">
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="200dp"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:text="סלט ציידים"
+                                    android:textSize="20dp"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/menu_item_head"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:paddingTop="15dp" />
+
+                                <TextView
+                                    android:text="\nמחיר:  15שח"
+                                    android:textSize="20dp"
+                                    android:textAlignment="center"
+                                    android:textColor="#000000"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:textDirection="rtl"/>
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:srcCompat="@drawable/salad1"
+                            android:layout_marginRight="0dp"
+                            android:layout_marginStart="200dp"
+                            android:layout_weight="1" />
+
+                    </FrameLayout>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:background="#afabab"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:soundEffectsEnabled="true"
+                    android:layout_width="355dp"
+                    android:layout_height="155dp"
+                    android:id="@+id/item52">
+
+                    <FrameLayout
+                        android:background="#ffffff"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_height="145dp"
+                        android:layout_width="345dp">
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="200dp"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:text="סלט ציידות"
+                                    android:textSize="20dp"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/menu_item_head"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:paddingTop="15dp" />
+
+                                <TextView
+                                    android:text="\nמחיר:  20שח"
+                                    android:textSize="20dp"
+                                    android:textAlignment="center"
+                                    android:textColor="#000000"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:textDirection="rtl" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:srcCompat="@drawable/salad2"
+                            android:layout_marginRight="0dp"
+                            android:layout_marginStart="200dp"
+                            android:layout_weight="1" />
+
+                    </FrameLayout>
+                </FrameLayout>
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/pasta_end">
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/rizoto">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/sideiconleft"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginStart="295dp" />
+
+                <TextView
+                    android:text="ריזוטו"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="35sp"
+                    android:layout_marginStart="10dp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/sideiconright"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginStart="10dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <FrameLayout
+                    android:background="#afabab"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="10dp"
+                    android:soundEffectsEnabled="true"
+                    android:layout_width="355dp"
+                    android:layout_height="155dp"
+                    android:id="@+id/item61">
+
+
+                    <FrameLayout
+                        android:background="#ffffff"
+                        android:layout_width="345dp"
+                        android:layout_height="145dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp">
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="200dp"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:text="סלט ציידים"
+                                    android:textSize="20dp"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/menu_item_head"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:paddingTop="15dp" />
+
+                                <TextView
+                                    android:text="\nמחיר:  15שח"
+                                    android:textSize="20dp"
+                                    android:textAlignment="center"
+                                    android:textColor="#000000"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:textDirection="rtl"/>
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:srcCompat="@drawable/salad1"
+                            android:layout_marginRight="0dp"
+                            android:layout_marginStart="200dp"
+                            android:layout_weight="1" />
+
+                    </FrameLayout>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:background="#afabab"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:soundEffectsEnabled="true"
+                    android:layout_width="355dp"
+                    android:layout_height="155dp"
+                    android:id="@+id/item62">
+
+                    <FrameLayout
+                        android:background="#ffffff"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_height="145dp"
+                        android:layout_width="345dp">
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="200dp"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:text="סלט ציידות"
+                                    android:textSize="20dp"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/menu_item_head"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:paddingTop="15dp" />
+
+                                <TextView
+                                    android:text="\nמחיר:  20שח"
+                                    android:textSize="20dp"
+                                    android:textAlignment="center"
+                                    android:textColor="#000000"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:textDirection="rtl" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:srcCompat="@drawable/salad2"
+                            android:layout_marginRight="0dp"
+                            android:layout_marginStart="200dp"
+                            android:layout_weight="1" />
+
+                    </FrameLayout>
+                </FrameLayout>
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/rizoto_end">
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/meat_and_fish">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/sideiconleft"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginStart="276dp" />
+
+                <TextView
+                    android:text="בשר ודג"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="35sp"
+                    android:layout_marginStart="10dp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/sideiconright"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginStart="10dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <FrameLayout
+                    android:background="#afabab"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="10dp"
+                    android:soundEffectsEnabled="true"
+                    android:layout_width="355dp"
+                    android:layout_height="155dp"
+                    android:id="@+id/item71">
+
+
+                    <FrameLayout
+                        android:background="#ffffff"
+                        android:layout_width="345dp"
+                        android:layout_height="145dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp">
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="200dp"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:text="סלט ציידים"
+                                    android:textSize="20dp"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/menu_item_head"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:paddingTop="15dp" />
+
+                                <TextView
+                                    android:text="\nמחיר:  15שח"
+                                    android:textSize="20dp"
+                                    android:textAlignment="center"
+                                    android:textColor="#000000"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:textDirection="rtl"/>
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:srcCompat="@drawable/salad1"
+                            android:layout_marginRight="0dp"
+                            android:layout_marginStart="200dp"
+                            android:layout_weight="1" />
+
+                    </FrameLayout>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:background="#afabab"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:soundEffectsEnabled="true"
+                    android:layout_width="355dp"
+                    android:layout_height="155dp"
+                    android:id="@+id/item72">
+
+                    <FrameLayout
+                        android:background="#ffffff"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_height="145dp"
+                        android:layout_width="345dp">
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="200dp"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:text="סלט ציידות"
+                                    android:textSize="20dp"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/menu_item_head"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:paddingTop="15dp" />
+
+                                <TextView
+                                    android:text="\nמחיר:  20שח"
+                                    android:textSize="20dp"
+                                    android:textAlignment="center"
+                                    android:textColor="#000000"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:textDirection="rtl" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:srcCompat="@drawable/salad2"
+                            android:layout_marginRight="0dp"
+                            android:layout_marginStart="200dp"
+                            android:layout_weight="1" />
+
+                    </FrameLayout>
+                </FrameLayout>
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/meat_and_fish_end">
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/deaserts">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/sideiconleft"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginStart="280dp" />
+
+                <TextView
+                    android:text="קינוחים"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="35sp"
+                    android:layout_marginStart="10dp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/sideiconright"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginStart="10dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <FrameLayout
+                    android:background="#afabab"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="10dp"
+                    android:soundEffectsEnabled="true"
+                    android:layout_width="355dp"
+                    android:layout_height="155dp"
+                    android:id="@+id/item81">
+
+
+                    <FrameLayout
+                        android:background="#ffffff"
+                        android:layout_width="345dp"
+                        android:layout_height="145dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp">
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="200dp"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:text="סלט ציידים"
+                                    android:textSize="20dp"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/menu_item_head"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:paddingTop="15dp" />
+
+                                <TextView
+                                    android:text="\nמחיר:  15שח"
+                                    android:textSize="20dp"
+                                    android:textAlignment="center"
+                                    android:textColor="#000000"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:textDirection="rtl"/>
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:srcCompat="@drawable/salad1"
+                            android:layout_marginRight="0dp"
+                            android:layout_marginStart="200dp"
+                            android:layout_weight="1" />
+
+                    </FrameLayout>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:background="#afabab"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:soundEffectsEnabled="true"
+                    android:layout_width="355dp"
+                    android:layout_height="155dp"
+                    android:id="@+id/item82">
+
+                    <FrameLayout
+                        android:background="#ffffff"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_height="145dp"
+                        android:layout_width="345dp">
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="200dp"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:text="סלט ציידות"
+                                    android:textSize="20dp"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/menu_item_head"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:paddingTop="15dp" />
+
+                                <TextView
+                                    android:text="\nמחיר:  20שח"
+                                    android:textSize="20dp"
+                                    android:textAlignment="center"
+                                    android:textColor="#000000"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:textDirection="rtl" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:srcCompat="@drawable/salad2"
+                            android:layout_marginRight="0dp"
+                            android:layout_marginStart="200dp"
+                            android:layout_weight="1" />
+
+                    </FrameLayout>
+                </FrameLayout>
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/deaserts_end">
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/ext_lrg"
+        android:background="#00000000"
+        android:visibility="invisible" />
+
+    <FrameLayout
+        android:id="@+id/itm11_lrg"
+        android:layout_marginTop="80dp"
+        android:layout_marginStart="200dp"
+        android:background="@color/common_google_signin_btn_text_light_default"
+        android:layout_height="426dp"
+        android:layout_width="389dp"
+        android:visibility="invisible">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="367dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginStart="7dp"
+            android:layout_marginBottom="7dp">
+
+            <TextView
+                android:text="TextView"
+                android:layout_width="match_parent"
+                android:layout_height="38dp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="7dp"
+            android:layout_height="360dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_height="382dp"
+                android:layout_width="382dp">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:addStatesFromChildren="false">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:srcCompat="@drawable/goldstar" />
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="342dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@android:drawable/ic_delete"
+                            android:background="@color/common_google_signin_btn_text_dark_disabled" />
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/ext_itm11_lrg_btn"
+                            android:background="#00ffffff"
+                            android:ellipsize="none" />
+
+                    </FrameLayout>
+
+                </FrameLayout>
+
+            </LinearLayout>
+        </FrameLayout>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/itm12_lrg"
+        android:layout_marginTop="80dp"
+        android:layout_marginStart="200dp"
+        android:background="@color/common_google_signin_btn_text_light_default"
+        android:layout_height="426dp"
+        android:layout_width="389dp"
+        android:visibility="invisible">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="367dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginStart="7dp"
+            android:layout_marginBottom="7dp">
+
+            <TextView
+                android:text="TextView"
+                android:layout_width="match_parent"
+                android:layout_height="38dp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="7dp"
+            android:layout_height="360dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_height="382dp"
+                android:layout_width="382dp">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:srcCompat="@drawable/pizza" />
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="342dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@android:drawable/ic_delete"
+                            android:background="@color/common_google_signin_btn_text_dark_disabled" />
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/ext_itm12_lrg_btn"
+                            android:background="#00ffffff"
+                            android:ellipsize="none" />
+
+                    </FrameLayout>
+
+                </FrameLayout>
+
+            </LinearLayout>
+        </FrameLayout>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/itm13_lrg"
+        android:layout_marginTop="80dp"
+        android:layout_marginStart="200dp"
+        android:background="@color/common_google_signin_btn_text_light_default"
+        android:layout_height="426dp"
+        android:layout_width="389dp"
+        android:visibility="invisible">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="367dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginStart="7dp"
+            android:layout_marginBottom="7dp">
+
+            <TextView
+                android:text="TextView"
+                android:layout_width="match_parent"
+                android:layout_height="38dp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="7dp"
+            android:layout_height="360dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_height="382dp"
+                android:layout_width="382dp">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:srcCompat="@drawable/carpacho" />
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="342dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@android:drawable/ic_delete"
+                            android:background="@color/common_google_signin_btn_text_dark_disabled" />
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/ext_itm13_lrg_btn"
+                            android:background="#00ffffff"
+                            android:ellipsize="none" />
+
+                    </FrameLayout>
+
+                </FrameLayout>
+
+            </LinearLayout>
+        </FrameLayout>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/itm14_lrg"
+        android:layout_marginTop="80dp"
+        android:layout_marginStart="200dp"
+        android:background="@color/common_google_signin_btn_text_light_default"
+        android:layout_height="426dp"
+        android:layout_width="389dp"
+        android:visibility="invisible">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="367dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginStart="7dp"
+            android:layout_marginBottom="7dp">
+
+            <TextView
+                android:text="TextView"
+                android:layout_width="match_parent"
+                android:layout_height="38dp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="7dp"
+            android:layout_height="360dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_height="382dp"
+                android:layout_width="382dp">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:srcCompat="@drawable/steak" />
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="342dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@android:drawable/ic_delete"
+                            android:background="@color/common_google_signin_btn_text_dark_disabled" />
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/ext_itm14_lrg_btn"
+                            android:background="#00ffffff"
+                            android:ellipsize="none" />
+
+                    </FrameLayout>
+
+                </FrameLayout>
+
+            </LinearLayout>
+        </FrameLayout>
+
+    </FrameLayout>
+
+    <!-- This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows. -->
+
+</FrameLayout>

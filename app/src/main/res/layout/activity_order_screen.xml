@@ -1,0 +1,76 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#c7c7c7"
+    tools:context="net.ordesk.ordesk_vivino.order_screen"
+    android:id="@+id/order_framelayout">
+
+    <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+    <FrameLayout android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:background="#734f37"
+        android:layout_marginStart="820dp">
+
+        <ImageView
+            android:layout_width="184dp"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/vivinologo"
+            android:id="@+id/imageView"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="-30dp" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="820dp"
+        android:weightSum="1">
+
+        <ImageButton
+            android:layout_height="match_parent"
+            app:srcCompat="@android:drawable/ic_menu_revert"
+            android:id="@+id/imageButton_back"
+            android:layout_width="wrap_content" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/servicebtn"
+            android:id="@+id/imageButton2"
+            android:background="@drawable/servicebtn" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/orderbtnpush"
+            android:id="@+id/imageButton3" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/paybtn"
+            android:id="@+id/imageButton4" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/playbtn"
+            android:id="@+id/imageButton5" />
+
+        <Button
+            android:text="Button"
+            android:background="#f10707"
+            android:backgroundTint="#9e9e93"
+            android:backgroundTintMode="multiply"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/button" />
+
+    </LinearLayout>
+    <!-- This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows. -->
+
+</FrameLayout>

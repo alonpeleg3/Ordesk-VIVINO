@@ -1,0 +1,64 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#c7c7c7"
+    tools:context="net.ordesk.ordesk_vivino.welcome_screen"
+    android:id="@+id/frameLayout">
+
+    <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+
+    <ImageView
+        android:layout_width="968dp"
+        app:srcCompat="@drawable/vivinowelcomscreen"
+        android:id="@+id/imageView_vivinoblur"
+        android:layout_height="666dp"
+        android:layout_marginStart="-85dp"
+        android:layout_marginTop="-30dp" />
+
+    <Button
+        android:background="#00ffffff"
+        android:layout_width="821dp"
+        android:layout_height="match_parent"
+        android:id="@+id/start_order_button"
+        android:textSize="30sp"
+        android:textColor="#000000" />
+
+    <FrameLayout android:layout_height="match_parent"
+        android:background="#734f37"
+        android:layout_marginStart="780dp"
+        android:layout_width="match_parent">
+
+        <ImageView
+            android:layout_height="214dp"
+            app:srcCompat="@drawable/vivinologo"
+            android:id="@+id/imageView"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="-30dp"
+            android:layout_width="220dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="215dp"
+            app:srcCompat="@drawable/goldstar"
+            android:id="@+id/imageView2"
+            android:layout_marginTop="350dp" />
+
+        <TextView
+            android:text="Advertise Here"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            android:layout_marginTop="280dp"
+            android:textSize="26sp"
+            android:layout_marginStart="22dp" />
+
+    </FrameLayout>
+
+    <!-- This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows. -->
+
+</FrameLayout>
