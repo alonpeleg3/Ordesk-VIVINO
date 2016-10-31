@@ -8,9 +8,15 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -98,10 +104,89 @@ public class pay_screen extends AppCompatActivity {
         // mControlsView = findViewById(R.id.fullscreen_content_controls);
         mContentView = findViewById(R.id.pay_framelayout);
 
+        final projectGlobals globalVariable = (projectGlobals)getApplicationContext();
+        final boolean order_flag[] = globalVariable.getOrderArray();
+
+        FrameLayout fl = (FrameLayout)findViewById(R.id.no_order_message);
+        fl.setVisibility(View.VISIBLE);
+
         TableLayout orderTable = (TableLayout)findViewById(R.id.order_tbl);
 
+        String[] headers = {"הערות","מחיר","תוספות","כמות","מנה"};
+        int i=0,j=0;
+        int row_num=0;
+        while (i < order_flag.length)
+        {
+            if (globalVariable.getOrder(i)){
+                if (row_num == 0)
+                {
+                    fl.setVisibility(View.INVISIBLE);
+                    TableRow row = new TableRow(this);
+                    TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT);
+                    row.setBackgroundColor(0xFF393838);
+                    row.setLayoutParams(lp);
+                    LinearLayout ll = new LinearLayout(this);
+
+                    while(j < headers.length)
+                    {
+                        TextView tv = new TextView(this);
+                        tv.setText(headers[j]);
+                        tv.setWidth(120);
+                        tv.setTextColor(0xFFFFFFFF);
+                        tv.setTextSize(20);
+                        tv.setPadding(0,5,0,5);
+                        ll.addView(tv);
+                        j++;
+                    }
+
+                    row.addView(ll);
+                    row.invalidate();
+                    orderTable.addView(row,row_num);
+                    row_num++;
+                }
+                TableRow row = new TableRow(this);
+                TableRow.LayoutParams lp = new TableRow.LayoutParams(650, 40);
+                LinearLayout.LayoutParams frmLayParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, 40);
+                LinearLayout.LayoutParams btnLayParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, 40);
+
+                row.setBackgroundColor(0xFFffffff);
+                row.setLayoutParams(lp);
+
+                LinearLayout ll = new LinearLayout(this);
+                ll.setOrientation(LinearLayout.HORIZONTAL);
+                ll.setBackgroundColor(0xFFc7c7c7);
+
+                FrameLayout fl1 = new FrameLayout(this);
+                frmLayParams.setMargins(0,0,0,0);
+                frmLayParams.setMarginStart(0);
+                fl1.setLayoutParams(frmLayParams);
+                TextView tv = new TextView(this);
+                tv.setText("פריט מספר "+i+" הוסף להזמנה");
+                tv.setTextColor(0xFF000000);
+                tv.setBackgroundColor(0xFFc7c7c7);
+                tv.setPadding(0,8,0,2);
+                fl1.addView(tv);
+
+                FrameLayout fl2 = new FrameLayout(this);
+
+                Button rmvbtn = new Button(this);
+                rmvbtn.setLayoutParams(btnLayParams);
+                rmvbtn.setText("הסר");
+                fl2.addView(rmvbtn);
+
+                ll.addView(fl2);
+                ll.addView(fl1);
+                row.addView(ll);
+                row.invalidate();
+                orderTable.addView(row,row_num);
+                row_num++;
+            }
+            i++;
+        }
+
+
         Button backbtn = (Button) findViewById(R.id.imageButton_back);
-        ImageButton orderbtn = (ImageButton) findViewById(R.id.pay_order_imageButton);
+        ImageButton orderbtn = (ImageButton) findViewById(R.id.menu_btn);
 
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override

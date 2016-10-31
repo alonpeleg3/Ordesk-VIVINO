@@ -97,9 +97,12 @@ public class welcome_info extends AppCompatActivity {
         // mControlsView = findViewById(R.id.fullscreen_content_controls);
         mContentView = findViewById(R.id.welcome_info_frameLayout);
 
+        final projectGlobals globalVariable = (projectGlobals)getApplicationContext();
+        final boolean order_flag[] = globalVariable.getOrderArray();
+
         Button backbtn = (Button) findViewById(R.id.imageButton_back);
-        ImageButton paybtn = (ImageButton) findViewById(R.id.info_pay_imageButton);
-        ImageButton orderbtn = (ImageButton) findViewById(R.id.info_order_imageButton);
+        ImageButton paybtn = (ImageButton) findViewById(R.id.info_order_btn);
+        ImageButton orderbtn = (ImageButton) findViewById(R.id.info_menu_btn);
 
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override

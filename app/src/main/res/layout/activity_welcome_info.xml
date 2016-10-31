@@ -68,18 +68,17 @@
         android:background="#000000"
         android:layout_height="65dp"
         android:layout_width="780dp"
-        android:weightSum="1">
+        android:weightSum="1"
+        android:id="@+id/nav_bar">
 
         <FrameLayout
             android:layout_height="match_parent"
-            android:layout_weight="0.45"
-            android:layout_width="50dp">
+            android:layout_width="60dp">
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:srcCompat="@android:drawable/ic_menu_info_details"
-                android:id="@+id/imageView4" />
+                app:srcCompat="@drawable/infobtn" />
 
             <Button
                 android:layout_width="match_parent"
@@ -93,45 +92,35 @@
             android:background="#000000"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/info_order_imageButton"
-            app:srcCompat="@drawable/orderbtn"
-            android:soundEffectsEnabled="true"/>
-
-        <ImageButton
-            android:background="#000000"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            app:srcCompat="@drawable/paybtn"
-            android:id="@+id/info_pay_imageButton"
-            android:paddingStart="10dp"
-            android:soundEffectsEnabled="true" />
-
-        <ImageButton
-            android:background="#000000"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            app:srcCompat="@drawable/playbtn"
-            android:id="@+id/payimageButton5"
-            android:paddingStart="10dp"
-            android:paddingLeft="10dp"
-            android:soundEffectsEnabled="true" />
-
-        <ImageButton
-            android:background="#000000"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            app:srcCompat="@drawable/servicebtn"
-            android:id="@+id/payimageButton2"
+            app:srcCompat="@drawable/meltzarbtn"
+            android:id="@+id/imageButton2"
             android:paddingStart="10dp" />
 
         <ImageButton
             android:background="#000000"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            app:srcCompat="@drawable/cartbtn"
-            android:id="@+id/payimageButton10"
-            android:layout_width="60dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="-25dp" />
+            app:srcCompat="@drawable/mischakimbtn"
+            android:id="@+id/imageButton5"
+            android:paddingStart="10dp"
+            android:soundEffectsEnabled="true" />
+
+        <ImageButton
+            android:background="#000000"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/hazmanabtn"
+            android:id="@+id/info_order_btn"
+            android:paddingStart="10dp"
+            android:soundEffectsEnabled="true" />
+
+        <ImageButton
+            android:background="#000000"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/info_menu_btn"
+            app:srcCompat="@drawable/tafritbtn"
+            android:soundEffectsEnabled="true" />
 
     </LinearLayout>
 

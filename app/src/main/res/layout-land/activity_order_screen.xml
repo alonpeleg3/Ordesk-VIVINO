@@ -104,13 +104,12 @@
 
         <FrameLayout
             android:layout_height="match_parent"
-            android:layout_weight="0.45"
-            android:layout_width="50dp">
+            android:layout_width="60dp">
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:srcCompat="@android:drawable/ic_menu_info_details" />
+                app:srcCompat="@drawable/infobtn" />
 
             <Button
                 android:layout_width="match_parent"
@@ -124,24 +123,15 @@
             android:background="#000000"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/imageButton3"
-            app:srcCompat="@drawable/orderbtnpush"
-            android:soundEffectsEnabled="true" />
+            app:srcCompat="@drawable/meltzarbtn"
+            android:id="@+id/imageButton2"
+            android:paddingStart="10dp" />
 
         <ImageButton
             android:background="#000000"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            app:srcCompat="@drawable/paybtn"
-            android:id="@+id/order_pay_imageButton"
-            android:paddingStart="10dp"
-            android:soundEffectsEnabled="true" />
-
-        <ImageButton
-            android:background="#000000"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            app:srcCompat="@drawable/playbtn"
+            app:srcCompat="@drawable/mischakimbtn"
             android:id="@+id/imageButton5"
             android:paddingStart="10dp"
             android:soundEffectsEnabled="true" />
@@ -150,18 +140,18 @@
             android:background="#000000"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            app:srcCompat="@drawable/servicebtn"
-            android:id="@+id/imageButton2"
-            android:paddingStart="10dp" />
+            app:srcCompat="@drawable/hazmanabtn"
+            android:id="@+id/order_pay_imageButton"
+            android:paddingStart="10dp"
+            android:soundEffectsEnabled="true" />
 
         <ImageButton
             android:background="#000000"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            app:srcCompat="@drawable/cartbtn"
-            android:id="@+id/imageButton10"
-            android:layout_width="60dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="-25dp" />
+            android:id="@+id/imageButton3"
+            app:srcCompat="@drawable/tafritpushbtn"
+            android:soundEffectsEnabled="true" />
 
     </LinearLayout>
 
@@ -174,7 +164,8 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:weightSum="1">
+            android:weightSum="1"
+            android:id="@+id/menu_linear_layout">
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -190,7 +181,7 @@
                     android:layout_marginStart="286dp" />
 
                 <TextView
-                    android:text="פתיחהא"
+                    android:text="פתיחה"
                     android:textAlignment="center"
                     android:textColor="#000000"
                     android:layout_width="wrap_content"
@@ -403,8 +394,7 @@
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                app:srcCompat="@drawable/pizza"
-                                android:layout_weight="1" />
+                                app:srcCompat="@drawable/pizza" />
 
                             <Button
                                 android:layout_width="match_parent"
