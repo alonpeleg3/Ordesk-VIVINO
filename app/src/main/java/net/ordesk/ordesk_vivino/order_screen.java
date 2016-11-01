@@ -113,7 +113,7 @@ public class order_screen extends AppCompatActivity {
 
         final String[] cat = {"פתיחה","סלטים","מרקים","פיצות","פסטה","ריזוטו"};
         final String[][] dish = globalVariable.getDishArr();
-        int dish_num=5;
+        int dish_num=7;
 
         ImageButton[] add2cart_btns = new ImageButton[itemNum];
         int i1=0;
@@ -257,7 +257,10 @@ public class order_screen extends AppCompatActivity {
                 ImageView dish1_iv2 = new ImageView(this);
                 FrameLayout.LayoutParams dish1_iv2_flp = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,FrameLayout.LayoutParams.MATCH_PARENT);
                 dish1_iv2.setLayoutParams(dish1_iv2_flp);
-                dish1_iv2.setBackgroundResource(R.drawable.pizza);
+
+                String imageId =dish[2][j];
+                int resID = getResources().getIdentifier(imageId, "drawable", getPackageName());
+                dish1_iv2.setBackgroundResource(resID);
 
                 order_btn_fl.addView(add2cart_btns[j]);
                 ll3.addView(order_btn_fl,0);
@@ -368,7 +371,9 @@ public class order_screen extends AppCompatActivity {
                     ImageView dish2_iv2 = new ImageView(this);
                     FrameLayout.LayoutParams dish2_iv2_flp = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,FrameLayout.LayoutParams.MATCH_PARENT);
                     dish2_iv2.setLayoutParams(dish2_iv2_flp);
-                    dish2_iv2.setBackgroundResource(R.drawable.pizza);
+                    String image2Id =dish[2][j];
+                    int res2ID = getResources().getIdentifier(image2Id, "drawable", getPackageName());
+                    dish2_iv2.setBackgroundResource(res2ID);
 
                     dish2_order_btn_fl.addView(add2cart_btns[j]);
                     dish2_ll3.addView(dish2_order_btn_fl,0);

@@ -158,6 +158,7 @@ public class pay_screen extends AppCompatActivity {
                 //llp.setMarginStart(30);
                 //ll.setLayoutParams(llp);
                 ll.setBackgroundColor(0xFFc7c7c7);
+                ll.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_END);
 
                 FrameLayout fl1 = new FrameLayout(this);
                 frmLayParams.setMargins(0,0,60,0);
@@ -167,7 +168,7 @@ public class pay_screen extends AppCompatActivity {
                 tv.setText(globalVariable.getDish(0,i));
                 tv.setTextColor(0xFF000000);
                 tv.setBackgroundColor(0xFFc7c7c7);
-                tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+                tv.setTextDirection(View.TEXT_DIRECTION_ANY_RTL);
                 tv.setPadding(0,8,60,2);
                 fl1.addView(tv);
 

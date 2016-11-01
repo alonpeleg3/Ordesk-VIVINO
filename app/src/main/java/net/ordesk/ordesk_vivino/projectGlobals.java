@@ -11,7 +11,7 @@ public class projectGlobals extends Application{
     private int menu_item_num = 100;
     private boolean[] order_flag = new boolean[menu_item_num];
     private FrameLayout[] order_btn_fl = new FrameLayout[menu_item_num];
-    private String[][] dish = {{"סלט","בירה","פיצה","סטייק","קרפאצ'ו"},{"10","15","35","50","20"}};
+    private String[][] dish = {{"סלט","בירה","פיצה","כדורי ריזוטו","שיפוד","קרפאצ'ו","קינוח חלווה"},{"10","15","35","20","50","20","25"},{"salad3","goldstar","pizza","rizotoball","shipud","carpacho","kinuahhalva"}};
 
     public void importMenuItems()
     {
