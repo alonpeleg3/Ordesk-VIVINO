@@ -154,17 +154,21 @@ public class pay_screen extends AppCompatActivity {
 
                 LinearLayout ll = new LinearLayout(this);
                 ll.setOrientation(LinearLayout.HORIZONTAL);
+                //LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(650, 40);
+                //llp.setMarginStart(30);
+                //ll.setLayoutParams(llp);
                 ll.setBackgroundColor(0xFFc7c7c7);
 
                 FrameLayout fl1 = new FrameLayout(this);
-                frmLayParams.setMargins(0,0,0,0);
-                frmLayParams.setMarginStart(0);
+                frmLayParams.setMargins(0,0,60,0);
+                frmLayParams.setMarginStart(470);
                 fl1.setLayoutParams(frmLayParams);
                 TextView tv = new TextView(this);
-                tv.setText("פריט מספר "+i+" הוסף להזמנה");
+                tv.setText(globalVariable.getDish(0,i));
                 tv.setTextColor(0xFF000000);
                 tv.setBackgroundColor(0xFFc7c7c7);
-                tv.setPadding(0,8,0,2);
+                tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+                tv.setPadding(0,8,60,2);
                 fl1.addView(tv);
 
                 FrameLayout fl2 = new FrameLayout(this);
@@ -172,10 +176,10 @@ public class pay_screen extends AppCompatActivity {
                 Button rmvbtn = new Button(this);
                 rmvbtn.setLayoutParams(btnLayParams);
                 rmvbtn.setText("הסר");
-                fl2.addView(rmvbtn);
 
-                ll.addView(fl2);
-                ll.addView(fl1);
+                fl2.addView(rmvbtn);
+                ll.addView(fl2,0);
+                ll.addView(fl1,1);
                 row.addView(ll);
                 row.invalidate();
                 orderTable.addView(row,row_num);
