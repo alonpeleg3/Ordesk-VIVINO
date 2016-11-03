@@ -9,4 +9,6 @@
     <string name="title_activity_pay_screen">pay_screen</string>
 
     <string name="title_activity_welcome_info">welcome_info</string>
+
+    <string name="title_activity_old_order_screen">old_order_screen</string>
 </resources>

@@ -3,7 +3,7 @@
     package="net.ordesk.ordesk_vivino">
 
     <application
-        android:name="net.ordesk.ordesk_vivino.projectGlobals"
+        android:name=".projectGlobals"
         android:allowBackup="true"
         android:icon="@mipmap/vivinologodark"
         android:label="@string/app_name"
@@ -35,6 +35,11 @@
             android:name=".welcome_info"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_welcome_info"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".old_order_screen"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_old_order_screen"
             android:theme="@style/FullscreenTheme"></activity>
     </application>
 
