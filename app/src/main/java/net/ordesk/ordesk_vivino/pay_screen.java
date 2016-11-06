@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -107,6 +108,15 @@ public class pay_screen extends AppCompatActivity {
         final projectGlobals globalVariable = (projectGlobals)getApplicationContext();
         final boolean order_flag[] = globalVariable.getOrderArray();
 
+        int itemNum = globalVariable.getItemNum();
+
+        Button[] rmvbtn = new Button[itemNum];
+        int i1 = 0;
+        while (i1 < rmvbtn.length) {
+            rmvbtn[i1] = new Button(this);
+            i1++;
+        }
+
         FrameLayout fl = (FrameLayout)findViewById(R.id.no_order_message);
         fl.setVisibility(View.VISIBLE);
 
@@ -174,11 +184,20 @@ public class pay_screen extends AppCompatActivity {
 
                 FrameLayout fl2 = new FrameLayout(this);
 
-                Button rmvbtn = new Button(this);
-                rmvbtn.setLayoutParams(btnLayParams);
-                rmvbtn.setText("הסר");
+                rmvbtn[i].setLayoutParams(btnLayParams);
+                rmvbtn[i].setText("הסר");
 
-                fl2.addView(rmvbtn);
+                rmvbtn[i].setId(1000+i);
+                rmvbtn[i].setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                            globalVariable.setOrder(v.getId()-1000, false);
+                            Toast.makeText(getApplicationContext(), globalVariable.getDish(0, v.getId()-1000
+                            ) + " הוסר מההזמנה ", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                fl2.addView(rmvbtn[i]);
                 ll.addView(fl2,0);
                 ll.addView(fl1,1);
                 row.addView(ll);

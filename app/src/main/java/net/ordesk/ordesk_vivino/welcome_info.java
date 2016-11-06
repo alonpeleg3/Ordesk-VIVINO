@@ -100,17 +100,8 @@ public class welcome_info extends AppCompatActivity {
         final projectGlobals globalVariable = (projectGlobals)getApplicationContext();
         final boolean order_flag[] = globalVariable.getOrderArray();
 
-        Button backbtn = (Button) findViewById(R.id.imageButton_back);
         ImageButton paybtn = (ImageButton) findViewById(R.id.info_order_btn);
         ImageButton orderbtn = (ImageButton) findViewById(R.id.info_menu_btn);
-
-        backbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent nextScreen = new Intent(getApplicationContext(), welcome_info.class);
-                startActivity(nextScreen);
-            }
-        });
 
         paybtn.setOnClickListener(new View.OnClickListener() {
             @Override
