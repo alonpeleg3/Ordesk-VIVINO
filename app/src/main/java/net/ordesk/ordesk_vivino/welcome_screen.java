@@ -98,6 +98,12 @@ public class welcome_screen extends AppCompatActivity {
         mVisible = true;
        // mControlsView = findViewById(R.id.imageView_vivinoblur);
         mContentView = findViewById(R.id.frameLayout);
+        mContentView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LOW_PROFILE
+                | View.SYSTEM_UI_FLAG_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
 
         Button strtbtn = (Button) findViewById(R.id.start_order_button);
 
@@ -107,6 +113,12 @@ public class welcome_screen extends AppCompatActivity {
                 startActivity(nextScreen);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        // nothing to do here
+        // … really
     }
 
     @Override

@@ -94,8 +94,13 @@ public class welcome_info extends AppCompatActivity {
         setContentView(R.layout.activity_welcome_info);
 
         mVisible = true;
-        // mControlsView = findViewById(R.id.fullscreen_content_controls);
         mContentView = findViewById(R.id.welcome_info_frameLayout);
+        mContentView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LOW_PROFILE
+                | View.SYSTEM_UI_FLAG_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
 
         final projectGlobals globalVariable = (projectGlobals)getApplicationContext();
         final boolean order_flag[] = globalVariable.getOrderArray();
@@ -137,6 +142,12 @@ public class welcome_info extends AppCompatActivity {
         } else {
             // show();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        // nothing to do here
+        // … really
     }
 
     private void hide() {

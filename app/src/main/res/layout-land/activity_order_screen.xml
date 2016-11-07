@@ -154,7 +154,18 @@
             app:srcCompat="@drawable/hazmanabtn"
             android:id="@+id/order_pay_imageButton"
             android:paddingStart="10dp"
-            android:soundEffectsEnabled="true" />
+            android:soundEffectsEnabled="true"
+            android:visibility="visible"/>
+
+        <ImageButton
+            android:background="#000000"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/hazmanabtn"
+            android:id="@+id/club_member_reg"
+            android:paddingStart="10dp"
+            android:soundEffectsEnabled="true"
+            android:visibility="gone"/>
 
         <ImageButton
             android:background="#000000"
