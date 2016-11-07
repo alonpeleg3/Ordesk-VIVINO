@@ -121,6 +121,8 @@ public class pay_screen extends AppCompatActivity {
         fl.setVisibility(View.VISIBLE);
 
         TableLayout orderTable = (TableLayout)findViewById(R.id.order_tbl);
+        FrameLayout tbl_headers = (FrameLayout)findViewById(R.id.order_tbl_headers);
+        FrameLayout order_summary_fl = (FrameLayout)findViewById(R.id.order_summary);
 
         String[] headers = {"הערות","מחיר","תוספות","כמות","מנה"};
         int i=0,j=0;
@@ -131,8 +133,9 @@ public class pay_screen extends AppCompatActivity {
                 if (row_num == 0)
                 {
                     fl.setVisibility(View.INVISIBLE);
+                    order_summary_fl.setVisibility(View.VISIBLE);
                     TableRow row = new TableRow(this);
-                    TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT);
+                    TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT,50);
                     row.setBackgroundColor(0xFF393838);
                     row.setLayoutParams(lp);
                     LinearLayout ll = new LinearLayout(this);
@@ -151,8 +154,8 @@ public class pay_screen extends AppCompatActivity {
 
                     row.addView(ll);
                     row.invalidate();
-                    orderTable.addView(row,row_num);
-                    row_num++;
+                    tbl_headers.addView(row);
+                    //row_num++;
                 }
                 TableRow row = new TableRow(this);
                 TableRow.LayoutParams lp = new TableRow.LayoutParams(650, 40);
@@ -178,7 +181,7 @@ public class pay_screen extends AppCompatActivity {
                 tv.setText(globalVariable.getDish(0,i));
                 tv.setTextColor(0xFF000000);
                 tv.setBackgroundColor(0xFFc7c7c7);
-                tv.setTextDirection(View.TEXT_DIRECTION_ANY_RTL);
+                tv.setTextDirection(View.TEXT_DIRECTION_RTL);
                 tv.setPadding(0,8,60,2);
                 fl1.addView(tv);
 
@@ -194,6 +197,11 @@ public class pay_screen extends AppCompatActivity {
                             globalVariable.setOrder(v.getId()-1000, false);
                             Toast.makeText(getApplicationContext(), globalVariable.getDish(0, v.getId()-1000
                             ) + " הוסר מההזמנה ", Toast.LENGTH_SHORT).show();
+                        FrameLayout fl0 = (FrameLayout)v.getParent();
+                        LinearLayout ll0 = (LinearLayout)fl0.getParent();
+                        TableRow row0 = (TableRow)ll0.getParent();
+                        TableLayout tbl0 = (TableLayout)row0.getParent();
+                        tbl0.removeView(row0);
                     }
                 });
 

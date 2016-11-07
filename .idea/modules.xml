@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Ordesk-KG.iml" filepath="$PROJECT_DIR$/Ordesk-KG.iml" />
       <module fileurl="file://$PROJECT_DIR$/Ordesk-VIVINO.iml" filepath="$PROJECT_DIR$/Ordesk-VIVINO.iml" />
       <module fileurl="file://$PROJECT_DIR$/Ordesk-VIVINO_git.iml" filepath="$PROJECT_DIR$/Ordesk-VIVINO_git.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/king.iml" filepath="$PROJECT_DIR$/king.iml" />
     </modules>
   </component>
 </project>
