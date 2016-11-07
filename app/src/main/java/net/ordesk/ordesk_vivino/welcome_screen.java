@@ -88,6 +88,8 @@ public class welcome_screen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        startLockTask();
+
         delayedHide(0);
         super.onCreate(savedInstanceState);
 

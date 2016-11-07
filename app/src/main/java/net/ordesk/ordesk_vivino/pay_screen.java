@@ -124,6 +124,13 @@ public class pay_screen extends AppCompatActivity {
         FrameLayout tbl_headers = (FrameLayout)findViewById(R.id.order_tbl_headers);
         FrameLayout order_summary_fl = (FrameLayout)findViewById(R.id.order_summary);
 
+        order_summary_fl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                stopLockTask();
+            }
+        });
+
         String[] headers = {"הערות","מחיר","תוספות","כמות","מנה"};
         int i=0,j=0;
         int row_num=0;
