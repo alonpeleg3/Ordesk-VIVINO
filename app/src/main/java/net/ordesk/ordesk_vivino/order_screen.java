@@ -127,6 +127,8 @@ public class order_screen extends AppCompatActivity {
 
             final String[] cat = globalVariable.getCategories();
             final String[][] dish = globalVariable.getDishArr();
+            final item[] items = globalVariable.getItems();
+            //int dish_num = items.length;
             int dish_num = globalVariable.getItemNum();
 
             ImageButton[] add2cart_btns = new ImageButton[itemNum];

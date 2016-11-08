@@ -7,6 +7,9 @@ import android.widget.ImageView;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class projectGlobals extends Application{
@@ -33,6 +36,7 @@ public class projectGlobals extends Application{
         order_screen_fl[0] = i;
     }
 
+    private List<item> itemList = new ArrayList<item>();
     public void importMenuItems()
     {
         String json_string="";
@@ -42,25 +46,28 @@ public class projectGlobals extends Application{
         BackgroundWorker backgroundWorker=new BackgroundWorker(this);
         try {
             json_string=backgroundWorker.execute().get();
-            //prodTitle.setText(json_string);
+            jsonObject=new JSONObject(json_string);
+            jsonArray=jsonObject.getJSONArray("server_response");
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject rec = jsonArray.getJSONObject(i);
+                String itemTitle=rec.getString("Item_Name");
+                double itemPrice=rec.getDouble("Item_Price");
+                itemList.add(new item(itemTitle,itemPrice));
+            }
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
             e.printStackTrace();
-        }
-        try {
-            jsonObject=new JSONObject(json_string);
-            jsonArray=jsonObject.getJSONArray("server_response");
-            JSONObject JO=jsonArray.getJSONObject(0);
-            //int count=0;
-            //while(count<jsonObject.length()){
-            //    JSONObject JO=jsonArray.getJSONObject(count);
-            //    name=JO.getString("Menu_Name");
-            //}
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
+
+    public item[] getItems() {
+        importMenuItems();
+        item[] items=new item[itemList.size()];
+        itemList.toArray(items);
+        return items;}
 
     public String[] getCategories()
     {
