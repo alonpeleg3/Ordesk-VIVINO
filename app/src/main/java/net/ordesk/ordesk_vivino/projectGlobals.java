@@ -37,6 +37,7 @@ public class projectGlobals extends Application{
     }
 
     private List<item> itemList = new ArrayList<item>();
+
     public void importMenuItems()
     {
         String json_string="";
@@ -46,7 +47,7 @@ public class projectGlobals extends Application{
         BackgroundWorker backgroundWorker=new BackgroundWorker(this);
         try {
             json_string=backgroundWorker.execute().get();
-            jsonObject=new JSONObject(json_string);
+            jsonObject = new JSONObject(json_string);
             jsonArray=jsonObject.getJSONArray("server_response");
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject rec = jsonArray.getJSONObject(i);
@@ -63,11 +64,13 @@ public class projectGlobals extends Application{
         }
     }
 
-    public item[] getItems() {
+    public item[] getItems()
+    {
         importMenuItems();
         item[] items=new item[itemList.size()];
         itemList.toArray(items);
-        return items;}
+        return items;
+    }
 
     public String[] getCategories()
     {

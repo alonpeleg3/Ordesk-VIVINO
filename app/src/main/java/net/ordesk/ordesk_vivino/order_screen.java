@@ -127,7 +127,7 @@ public class order_screen extends AppCompatActivity {
 
             final String[] cat = globalVariable.getCategories();
             final String[][] dish = globalVariable.getDishArr();
-            final item[] items = globalVariable.getItems();
+            //final item[] items = globalVariable.getItems();
             //int dish_num = items.length;
             int dish_num = globalVariable.getItemNum();
 
@@ -142,7 +142,7 @@ public class order_screen extends AppCompatActivity {
             linlay.setBackgroundColor(0x00000000);
             linlay.invalidate();
 
-            int i = 0, j = 0, item_count=0;
+            int i = 0, j;
 
             while (i < 1/*cat.length*/) {
                 LinearLayout linlay1 = new LinearLayout(this);
@@ -177,7 +177,6 @@ public class order_screen extends AppCompatActivity {
                 linlay1.addView(iv2);
                 linlay.addView(linlay1);
 
-                item_count=0;
                 j=0;
                 while (j < dish_num) {
                     if (cat[i]==dish[3][j]) {
@@ -318,7 +317,6 @@ public class order_screen extends AppCompatActivity {
                         dish1_fl2.addView(ll1);
                         dish1_fl.addView(dish1_fl2);
                         dish_linlay.addView(dish1_fl);
-                        item_count++;
                         j = j + 1;
 
 //-----------------------------------------  End Of Left Item  ---------------------------------------------//
