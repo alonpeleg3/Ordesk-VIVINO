@@ -22,25 +22,30 @@ import java.net.URLEncoder;
  */
 
 public class BackgroundWorker extends AsyncTask<String, String, String> {
-    Context context;
+    String url;
+    String params;
     AlertDialog alertDialog;
-    BackgroundWorker(Context ctx) {
-        context = ctx;
+    BackgroundWorker(String url) {
+        this.url=url;
+    }
+
+    BackgroundWorker(String url,String params){
+        this.url=url;
+        this.params=params;
     }
 
     @Override
     protected String doInBackground(String... params) {
-        String php_url = "http://ordesk.net/login.php";
         try {
-            URL url = new URL(php_url);
+            URL url = new URL(this.url);
             HttpURLConnection httpURLConnection=(HttpURLConnection)url.openConnection();
             httpURLConnection.setRequestMethod("POST");
             httpURLConnection.setDoOutput(true);
             httpURLConnection.setDoInput(true);
             OutputStream outputStream=httpURLConnection.getOutputStream();
             BufferedWriter bufferedWriter=new BufferedWriter(new OutputStreamWriter(outputStream,"UTF-8"));
-            String post_data= URLEncoder.encode("Order_ID","UTF-8")+"="+URLEncoder.encode("1","UTF-8");
-            bufferedWriter.write(post_data);
+            //String post_data= URLEncoder.encode("Order_ID","UTF-8")+"="+URLEncoder.encode("1","UTF-8");
+            bufferedWriter.write(this.params);
             bufferedWriter.flush();
             bufferedWriter.close();
             outputStream.close();

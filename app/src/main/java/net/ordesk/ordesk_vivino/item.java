@@ -5,14 +5,19 @@ package net.ordesk.ordesk_vivino;
  */
 
 public class item {
+    private int itemId;
     private String category;
     private String title;
     private double price;
-    private String imagePath;
+    private String imageName;
+    private int categoryId;
 
-    item(String itemTitle,double itemPrice){
-        title=itemTitle;
-        price=itemPrice;
+    item(int itemId,String title,double price){//,String imageName,int categoryId
+        this.itemId=itemId;
+        this.title=title;
+        this.price=price;
+        //this.imageName=imageName;
+        //this.categoryId=categoryId;
     }
 
     public String getTitle() {return title;}
