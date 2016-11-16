@@ -12,7 +12,8 @@ public class item {
     private String imageName;
     private int categoryId;
 
-    item(int itemId,String title,double price){//,String imageName,int categoryId
+    item(int itemId,String title,double price)//,String imageName,int categoryId)
+    {
         this.itemId=itemId;
         this.title=title;
         this.price=price;

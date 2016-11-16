@@ -34,6 +34,31 @@
             android:label="@string/title_activity_order_screen"
             android:theme="@style/FullscreenTheme" />
         <activity
+            android:name=".order_screen_pilot"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="order_screen_pilot"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".welcome_info_pilot"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="welcome_info_pilot"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".play_screen"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="play_screen"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".feedback_screen"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="feedback_screen"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".membership_screen"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="membership_screen"
+            android:theme="@style/FullscreenTheme" />
+        <activity
             android:name=".pay_screen"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_pay_screen"

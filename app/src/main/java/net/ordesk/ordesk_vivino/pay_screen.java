@@ -9,6 +9,9 @@ import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.FrameLayout;
@@ -237,6 +240,7 @@ public class pay_screen extends AppCompatActivity {
 
         Button backbtn = (Button) findViewById(R.id.imageButton_back);
         ImageButton orderbtn = (ImageButton) findViewById(R.id.menu_btn);
+        Button paymentbtn = (Button)findViewById(R.id.payment);
 
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -251,6 +255,14 @@ public class pay_screen extends AppCompatActivity {
             public void onClick(View v) {
                 Intent nextScreen = new Intent(getApplicationContext(), order_screen.class);
                 startActivity(nextScreen);
+            }
+        });
+
+        final Window w = getWindow();
+        paymentbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                globalVariable.payment_scrn(3,v,w);
             }
         });
 

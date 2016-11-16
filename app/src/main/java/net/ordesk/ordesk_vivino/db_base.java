@@ -42,7 +42,7 @@ public class db_base {
     public item[] importMenuItems()
     {
         List<item> itemList = new ArrayList<item>();
-        JSONArray itemsArray=getJsonFromServer("http://ordesk.net/login.php");
+        JSONArray itemsArray = getJsonFromServer("http://ordesk.net/login.php");
         for (int i = 0; i < itemsArray.length(); i++) {
             JSONObject rec = null;
             try {

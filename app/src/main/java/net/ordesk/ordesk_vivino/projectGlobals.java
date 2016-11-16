@@ -1,8 +1,19 @@
 package net.ordesk.ordesk_vivino;
 import android.app.Application;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.text.method.PasswordTransformationMethod;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -18,6 +29,7 @@ public class projectGlobals extends Application{
     private int menu_item_num = 63;
     private boolean[] order_flag = new boolean[menu_item_num];
     private FrameLayout[] order_btn_fl = new FrameLayout[menu_item_num];
+    private LinearLayout menu_ll = null;
     db_base db_base=new db_base();
 
     final String[] menu_categories = {"פתיחה","ראשונות","פסטות","סלטים","עיקריות","קינוחים","שתיה קלה","אלכוהול"};
@@ -26,6 +38,16 @@ public class projectGlobals extends Application{
                                {"kg0carpatcho","kg0pire0balls","kg0dag0metugan","kg0egrol","kg0file0dag","kg0gulash","kg0hamburger","kg0hamburger0of","kg0hatzil0bethina","kg0haze0of","kg0haze0of0pitriyot","kg0hetzi0of","kg0homefries","kg0kabab","kg0karih0of","kg0karih0pargit","kg0karih0sinta","kg0kaved0pire","kg0knafaim0bafalo","kg0knafaim0teriaki","kg0ktzitzot0berotev","kg0kube","kg0lehem0bait","kg0moos0chokolade","kg0netah0file","kg0nioki0batata","kg0nioki0krispi","kg0of0bekari","kg0pargit","kg0pene0avaz","kg0pene0bakar","kg0pene0bolonez","kg0pene0haze0of","kg0pene0pitriyot","kg0pene0retzuot0of","kg0pene0salmon","kg0pi0tapuhim","kg0portabelo","kg0ravioli0gvinot","kg0salat0batata","kg0salat0bulgarit","kg0salat0burgul","kg0salat0burgul0pilpel","kg0salat0doritos","kg0salat0halumi","kg0salat0halumi0egozim","kg0salat0haze0of","kg0salat0nevatim","kg0salat0nudels","kg0salat0pilpel0bulgarit","kg0salat0sabih","kg0shawarma","kg0shipud0halumi","kg0shipud0salmon","kg0sinta","kg0steak","kg0file0salmon","kg0sufle","kg0teramisu","kg0thina","kg0uga0katzefet","kg0uga0pasiflora","kg0ugat0biskwitim"},
                                {"ראשונות","פתיחה","עיקריות","פתיחה","עיקריות","עיקריות","עיקריות","עיקריות","ראשונות","עיקריות","עיקריות","עיקריות","ראשונות","עיקריות","עיקריות","עיקריות","עיקריות","עיקריות","ראשונות","ראשונות","עיקריות","פתיחה","פתיחה","קינוחים","עיקריות","פסטות","פתיחה","עיקריות","עיקריות","פסטות","פסטות","פסטות","פסטות","פסטות","פסטות","פסטות","קינוחים","ראשונות","פסטות","סלטים","סלטים","סלטים","סלטים","סלטים","סלטים","סלטים","סלטים","סלטים","סלטים","סלטים","סלטים","עיקריות","פתיחה","ראשונות","עיקריות","עיקריות","עיקריות","קינוחים","קינוחים","פתיחה","קינוחים","קינוחים","קינוחים"}};
 
+
+    public LinearLayout getMenuLL()
+    {
+        return menu_ll;
+    }
+
+    public void setMenuLL(LinearLayout ll1)
+    {
+        menu_ll = ll1;
+    }
 
     private FrameLayout[] order_screen_fl = new FrameLayout[1];
 
@@ -145,5 +167,96 @@ public class projectGlobals extends Application{
         full_scrn_fl.addView(lrg_img0_fl);
         order_screen_fl[0].addView(full_scrn_fl);
 
+    }
+
+    public void payment_scrn(int sum_to_pay, View v, Window win)
+    {
+        FrameLayout pay_scrn_fl = (FrameLayout)((v.getParent()).getParent()).getParent();
+
+        FrameLayout pay_window_fl0 = new FrameLayout(this);
+        FrameLayout.LayoutParams pay_window_fl0_flp = new FrameLayout.LayoutParams(720,330);
+        pay_window_fl0_flp.setMargins(0,120,0,0);
+        pay_window_fl0_flp.setMarginStart(70);
+        pay_window_fl0.setLayoutParams(pay_window_fl0_flp);
+        pay_window_fl0.setBackgroundColor(0xFFafabab);
+
+        FrameLayout pay_window_full_scrn_fl = new FrameLayout(this);
+        FrameLayout.LayoutParams full_scrn_flp = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,FrameLayout.LayoutParams.MATCH_PARENT);
+        pay_window_full_scrn_fl.setLayoutParams(full_scrn_flp);
+        pay_window_full_scrn_fl.setBackgroundColor(0xc0000000);
+        pay_window_full_scrn_fl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FrameLayout pay_scrn_fl = (FrameLayout)v.getParent();
+                pay_scrn_fl.removeView(v);
+            }
+        });
+
+        FrameLayout pay_window_fl1 = new FrameLayout(this);
+        FrameLayout.LayoutParams pay_window_fl1_flp = new FrameLayout.LayoutParams(700,470);
+        pay_window_fl1_flp.setMargins(0,10,0,0);
+        pay_window_fl1_flp.setMarginStart(10);
+        pay_window_fl1.setLayoutParams(pay_window_fl1_flp);
+
+        TextView tv = new TextView(this);
+        FrameLayout.LayoutParams tv_flp = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,FrameLayout.LayoutParams.WRAP_CONTENT);
+        tv_flp.setMargins(0,50,0,0);
+        tv_flp.setMarginStart(30);
+        tv.setLayoutParams(tv_flp);
+        tv.setText("נא להעביר כרטיס אשראי");
+        tv.setTextColor(0xff000000);
+        tv.setTextSize(50);
+        tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+
+        final EditText pay_et = new EditText(this);
+        pay_et.setTransformationMethod(PasswordTransformationMethod.getInstance());
+        pay_et.setTextSize(20);
+        FrameLayout.LayoutParams pay_et_flp = new FrameLayout.LayoutParams(400,50);
+        pay_et_flp.setMargins(0,180,0,0);
+        pay_et_flp.setMarginStart(160);
+        pay_et.setLayoutParams(pay_et_flp);
+        pay_et.setBackgroundColor(0xffffffff);
+        pay_et.setTextColor(0xff000000);
+        pay_et.setClickable(false);
+        pay_et.requestFocus();
+        pay_et.setCursorVisible(true);
+
+        final StringBuilder sb = new StringBuilder();
+
+        pay_et.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after)
+            {
+                if (sb.length()>0)
+                {
+                    sb.deleteCharAt(0);
+                }
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count)
+            {
+                if (s.charAt(s.length()-1)=='\n')
+                {
+                    Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
+                    pay_et.clearFocus();
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s)
+            {
+                if(sb.length()==0)
+                {
+                    pay_et.requestFocus();
+                }
+            }
+        });
+
+        pay_window_fl1.addView(tv);
+        pay_window_fl1.addView(pay_et);
+        pay_window_fl0.addView(pay_window_fl1);
+        pay_window_full_scrn_fl.addView(pay_window_fl0);
+        pay_scrn_fl.addView(pay_window_full_scrn_fl);
     }
 }

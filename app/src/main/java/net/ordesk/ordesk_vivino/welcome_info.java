@@ -10,6 +10,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -32,7 +33,7 @@ public class welcome_info extends AppCompatActivity {
      * Some older devices needs a small delay between UI widget updates
      * and a change of the status and navigation bar.
      */
-    private static final int UI_ANIMATION_DELAY = 0;
+    private static final int UI_ANIMATION_DELAY = 1;
     private final Handler mHideHandler = new Handler();
     private View mContentView;
     private final Runnable mHidePart2Runnable = new Runnable() {
@@ -102,13 +103,13 @@ public class welcome_info extends AppCompatActivity {
                 | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                 | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
 
+        RelativeLayout rl_loading = (RelativeLayout)findViewById(R.id.loadingPanel);
+        rl_loading.setVisibility(View.INVISIBLE);
+
         final projectGlobals globalVariable = (projectGlobals)getApplicationContext();
         final boolean order_flag[] = globalVariable.getOrderArray();
 
-        ImageButton paybtn = (ImageButton) findViewById(R.id.info_order_btn);
-        ImageButton orderbtn = (ImageButton) findViewById(R.id.info_menu_btn);
-
-        paybtn.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.info_order_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent nextScreen = new Intent(getApplicationContext(), pay_screen.class);
@@ -116,11 +117,19 @@ public class welcome_info extends AppCompatActivity {
             }
         });
 
-        orderbtn.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.info_menu_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent nextScreen = new Intent(getApplicationContext(), order_screen.class);
-                startActivity(nextScreen);
+                findViewById(R.id.loadingPanel).setVisibility(View.VISIBLE);
+                Thread thread = new Thread()
+                {
+                    public void run()
+                    {
+                        Intent nextScreen = new Intent(getApplicationContext(), order_screen.class);
+                        startActivity(nextScreen);
+                    }
+                };
+                thread.start();
             }
         });
 

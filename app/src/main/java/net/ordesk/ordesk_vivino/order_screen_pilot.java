@@ -25,7 +25,7 @@ import com.google.android.gms.common.api.Scope;
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
-public class order_screen extends AppCompatActivity {
+public class order_screen_pilot extends AppCompatActivity {
     /**
      * Whether or not the system UI should be auto-hidden after
      * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
@@ -110,7 +110,7 @@ public class order_screen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         delayedHide(0);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_order_screen);
+        setContentView(R.layout.activity_order_screen_pilot);
         mVisible = true;
         mContentView = findViewById(R.id.order_framelayout);
         mContentView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LOW_PROFILE
@@ -511,25 +511,38 @@ public class order_screen extends AppCompatActivity {
 */
 //--------------------------- MenuBar Definitions -----------------------------//
 
-        Button backbtn = (Button)findViewById(R.id.imageButton_back);
-        ImageButton paybtn = (ImageButton)findViewById(R.id.order_pay_imageButton);
-
-        backbtn.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.order_info_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((ScrollView) findViewById(R.id.Menu)).removeAllViews();
-                Intent nextScreen = new Intent(getApplicationContext(), welcome_info.class);
+                Intent nextScreen = new Intent(getApplicationContext(), welcome_info_pilot.class);
                 startActivity(nextScreen);
             }
         });
 
-        paybtn.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.order_members_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent nextScreen = new Intent(getApplicationContext(), pay_screen.class);
+                Intent nextScreen = new Intent(getApplicationContext(), membership_screen.class);
                 startActivity(nextScreen);
             }
         });
+
+        findViewById(R.id.order_feedback_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent nextScreen = new Intent(getApplicationContext(), feedback_screen.class);
+                startActivity(nextScreen);
+            }
+        });
+
+        findViewById(R.id.order_play_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent nextScreen = new Intent(getApplicationContext(), play_screen.class);
+                startActivity(nextScreen);
+            }
+        });
+
 
 //--------------------------- ITEM 11 Definitions -----------------------------//
 /*
