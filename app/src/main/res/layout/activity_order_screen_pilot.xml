@@ -42,7 +42,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="0dp"
                     android:textAlignment="center"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"/>
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -167,11 +167,12 @@
 
     </LinearLayout>
 
-    <ScrollView android:layout_height="wrap_content"
+    <ScrollView
         android:layout_width="780dp"
         android:layout_marginTop="55dp"
         android:id="@+id/Menu"
-        android:background="@drawable/kg0menu0background">
+        android:background="@drawable/kg0menu0background"
+        android:layout_height="545dp">
 
 
     </ScrollView>
