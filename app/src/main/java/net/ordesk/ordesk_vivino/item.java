@@ -17,8 +17,8 @@ public class item {
         this.itemId=itemId;
         this.title=title;
         this.price=price;
-        //this.imageName=imageName;
-        //this.categoryId=categoryId;
+        this.imageName=imageName;
+        this.categoryId=categoryId;
     }
 
     public String getTitle() {return title;}

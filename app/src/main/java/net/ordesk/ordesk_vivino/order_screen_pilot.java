@@ -538,19 +538,28 @@ public class order_screen_pilot extends AppCompatActivity {
                 cat_btn.setTextColor(0xff000000);
                 cat_btn.setBackgroundColor(0x99878787);
 
-                TextView tv = new TextView(this);
-                tv.setForegroundGravity(View.TEXT_ALIGNMENT_CENTER);
-                tv.setText("Hello Menu");
-
-                ll.addView(tv);
+                item catTag = new item(0,cat[i],0);
+                cat_btn.setTag(catTag);
 
                 cat_btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         ScrollView menu_scroll = (ScrollView)findViewById(R.id.Menu);
                         LinearLayout ll = (LinearLayout)menu_scroll.getChildAt(0);
+                        menu_scroll.removeView(ll);
 
-                        ll.removeAllViews();
+                        LinearLayout menu_btns_ll = (LinearLayout)v.getParent();
+                        int j=0;
+                        while ( j < cat.length)
+                        {
+                            menu_btns_ll.getChildAt(j).setBackgroundColor(0x99878787);
+                            j++;
+                        }
+                        v.setBackgroundColor(0x998787ff);
+
+                        ll = globalVariable.build_cat_ll(v);
+                        menu_scroll.addView(ll);
+
                     }
                 });
 

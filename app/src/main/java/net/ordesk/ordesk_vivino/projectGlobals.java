@@ -1,5 +1,6 @@
 package net.ordesk.ordesk_vivino;
 import android.app.Application;
+import android.graphics.Typeface;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.PasswordTransformationMethod;
@@ -8,8 +9,10 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -30,7 +33,7 @@ public class projectGlobals extends Application{
     private boolean[] order_flag = new boolean[menu_item_num];
     private FrameLayout[] order_btn_fl = new FrameLayout[menu_item_num];
     private LinearLayout menu_ll = null;
-    db_base db_base=new db_base();
+    db_base db_base = new db_base();
 
     final String[] menu_categories = {"פתיחה","ראשונות","פסטות","סלטים","עיקריות","קינוחים","שתיה קלה","אלכוהול"};
     private String[][] dish = {{"קרפאצ'ו","כדורי פירה","דג מטוגן","אגרול","פילה דג","גולש","המבורגר","צ'קן בורגר","חציל בטחינה","חזה עוף","חזה עוף בפטריות","חצי עוף","הום פרייז","קבב","כריך עוף","כריך פרגית","כריך סינטה","כבד עוף","כנפיים באפאלו","כנפיים טריאקי","קציצות ברוטב","קובה","לחם הבית","מוס שוקולד","נתח פילה","ניוקי בטטה","ניוקי קריספי","עוף בקארי","פרגית","פסטה אווז","פסטה בקר","פסטה בולונז","פסטה חזה עוף","פסטה פיטריות","פסטה רצועות עוף","פסטה סלמון","פאי תפוחים","פורטבלו עיזים","רביולי גבינות","סלט בטטה","סלט בולגרית","סלט בורגול","סלט בורגול ופלפלים","סלט דוריטוס","סלט חלומי","סלט חלומי אגוזים","סלט חזה עוף","סלט נבטים","סלט נודלס","סלט פלפל בולגרית","סלט סביח","שווארמה ומג'דרה","שיפוד חלומי","שיפוד סלמון","נתח סינטה","סטייק","פילה סלמון","סופלה","טרמיסו","טחינה","עוגת נטיפים","עוגת גבינה","עוגת ביסקוויטים"},
@@ -258,5 +261,189 @@ public class projectGlobals extends Application{
         pay_window_fl0.addView(pay_window_fl1);
         pay_window_full_scrn_fl.addView(pay_window_fl0);
         pay_scrn_fl.addView(pay_window_full_scrn_fl);
+    }
+
+    public LinearLayout build_cat_ll(View v)
+    {
+        LinearLayout cat_ll = new LinearLayout(this);
+        cat_ll.setOrientation(LinearLayout.VERTICAL);
+
+        String category = ((item)v.getTag()).getTitle();
+
+        int i=0,count=0;
+        int[] cat_indx = new int[menu_item_num];
+
+        while (i < menu_item_num)
+        {
+            if(dish[3][i]==category)
+            {
+                cat_indx[count]=i;
+                count++;
+                //Toast.makeText(getApplicationContext(),, Toast.LENGTH_SHORT).show();
+            }
+            i++;
+        }
+
+        if (count==0)
+        {
+            cat_indx[count]=-1;
+        }
+        else
+        {
+            cat_indx[count+1]=-1;
+        }
+
+        ImageButton[] add2cart_btns = new ImageButton[menu_item_num];
+        int i1 = 0;
+        while (i1 < add2cart_btns.length) {
+            add2cart_btns[i1] = new ImageButton(this);
+            i1++;
+        }
+
+        int j=0;
+        while (cat_indx[j]!=-1)
+        {
+            LinearLayout dish_linlay = new LinearLayout(this);
+            LinearLayout.LayoutParams dish_linlay_llp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            dish_linlay.setOrientation(LinearLayout.HORIZONTAL);
+            dish_linlay.setLayoutParams(dish_linlay_llp);
+            dish_linlay.setPadding(25, 10, 0, 0);
+            dish_linlay.setBackgroundColor(0x00000000);
+            dish_linlay.invalidate();
+
+            //-----------------------------------------  Create Left Item  ---------------------------------------------//
+
+            FrameLayout dish1_fl = new FrameLayout(this);
+            FrameLayout.LayoutParams dish1_fl_flp = new FrameLayout.LayoutParams(355, 135);
+            dish1_fl_flp.setMargins(0, 20, 0, 0);
+            dish1_fl_flp.setMarginStart(25);
+            dish1_fl.setLayoutParams(dish1_fl_flp);
+            dish1_fl.setBackgroundColor(0xFFafabab);
+
+            FrameLayout dish1_fl2 = new FrameLayout(this);
+            FrameLayout.LayoutParams dish1_fl2_flp = new FrameLayout.LayoutParams(345, 125);
+            dish1_fl2_flp.setMargins(0, 5, 0, 0);
+            dish1_fl2_flp.setMarginStart(5);
+            dish1_fl2.setLayoutParams(dish1_fl2_flp);
+            dish1_fl2.setBackgroundColor(0xFFffffff);
+
+            LinearLayout ll1 = new LinearLayout(this);
+            LinearLayout.LayoutParams ll1_llp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+            ll1.setOrientation(LinearLayout.HORIZONTAL);
+            ll1.setLayoutParams(ll1_llp);
+
+            LinearLayout ll2 = new LinearLayout(this);
+            LinearLayout.LayoutParams ll2_llp = new LinearLayout.LayoutParams(200, LinearLayout.LayoutParams.MATCH_PARENT);
+            ll2.setOrientation(LinearLayout.VERTICAL);
+            ll2.setLayoutParams(ll2_llp);
+
+            TextView tv1 = new TextView(this);
+            tv1.setText(dish[0][cat_indx[j]]);
+            tv1.setTextSize(20);
+            tv1.setTextColor(0xFF8C5111);
+            tv1.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            tv1.setTypeface(Typeface.DEFAULT_BOLD);
+            LinearLayout.LayoutParams tv1_llp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 65);
+            tv1.setLayoutParams(tv1_llp);
+            tv1.setPadding(0, 0, 0, 0);
+
+            LinearLayout ll3 = new LinearLayout(this);
+            LinearLayout.LayoutParams ll3_llp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+            ll3.setOrientation(LinearLayout.HORIZONTAL);
+            ll3_llp.setMargins(5, 15, 0, 0);
+            ll3.setLayoutParams(ll3_llp);
+
+            TextView tv2 = new TextView(this);
+            tv2.setText("מחיר: " + dish[1][cat_indx[j]] + "שח");
+            tv2.setTextSize(17);
+            tv2.setTextColor(0xFF000000);
+            tv2.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            //tv2.setTypeface(Typeface.DEFAULT_BOLD);
+            LinearLayout.LayoutParams tv2_llp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            tv2.setLayoutParams(tv2_llp);
+            tv2.setPadding(0, 0, 0, 0);
+
+            FrameLayout order_btn_fl = getOrderBtnFl(cat_indx[j]);
+            FrameLayout.LayoutParams order_btn_flp = new FrameLayout.LayoutParams(40, 40);
+            order_btn_flp.setMargins(0, 15, 0, 0);
+            order_btn_flp.setMarginStart(6);
+            order_btn_fl.setLayoutParams(order_btn_flp);
+            order_btn_fl.setBackgroundColor(0xFF9f9f9f);
+            setOrderBtnFl(order_btn_fl, cat_indx[j]);
+
+            if (getOrder(cat_indx[j])) {
+                add2cart_btns[cat_indx[j]].setBackgroundResource(R.drawable.add2cartbtnpush);
+                add2cart_btns[cat_indx[j]].invalidate();
+            } else {
+                add2cart_btns[cat_indx[j]].setBackgroundResource(R.drawable.add2cartbtnnopush);
+                add2cart_btns[cat_indx[j]].invalidate();
+            }
+
+            add2cart_btns[cat_indx[j]].setId(cat_indx[j]);
+            add2cart_btns[cat_indx[j]].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (getOrder(v.getId())) {
+                        v.setBackgroundResource(R.drawable.add2cartbtnnopush);
+                        v.invalidate();
+                        setOrder(v.getId(), false);
+                        Toast.makeText(getApplicationContext(), getDish(0, v.getId()) + " הוסר מההזמנה ", Toast.LENGTH_SHORT).show();
+                    } else {
+                        v.setBackgroundResource(R.drawable.add2cartbtnpush);
+                        v.invalidate();
+                        setOrder(v.getId(), true);
+                        Toast.makeText(getApplicationContext(), getDish(0, v.getId()) + " הוסף להזמנה ", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+
+            FrameLayout dish_img_fl = new FrameLayout(this);
+            FrameLayout.LayoutParams dish_img_flp = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT);
+            dish_img_fl.setLayoutParams(dish_img_flp);
+
+            ImageView dish1_iv2 = new ImageView(this);
+            FrameLayout.LayoutParams dish1_iv2_flp = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT);
+            dish1_iv2.setLayoutParams(dish1_iv2_flp);
+
+            String imageId = dish[2][cat_indx[j]];
+            int resID = getResources().getIdentifier(imageId, "drawable", getPackageName());
+            dish1_iv2.setBackgroundResource(resID);
+
+            Button lrg_img_btn2 = new Button(this);
+            lrg_img_btn2.setBackgroundColor(0x00000000);
+            lrg_img_btn2.setTextColor(0x00000000);
+            FrameLayout.LayoutParams lrg_img_btn2_flp = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT);
+            lrg_img_btn2.setLayoutParams(lrg_img_btn2_flp);
+
+            menu_item img_tag = new menu_item();
+            img_tag.setItemName(dish[2][cat_indx[j]]);
+            lrg_img_btn2.setTag(img_tag);
+
+            lrg_img_btn2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    menu_item img_tag = (menu_item) v.getTag();
+                    String imgName = img_tag.getItemName();
+                    lrg_img(imgName);
+                }
+            });
+
+            order_btn_fl.addView(add2cart_btns[cat_indx[j]]);
+            ll3.addView(order_btn_fl, 0);
+            ll3.addView(tv2, 1);
+            ll2.addView(tv1, 0);
+            ll2.addView(ll3, 1);
+            ll1.addView(ll2, 0);
+            dish_img_fl.addView(dish1_iv2);
+            dish_img_fl.addView(lrg_img_btn2);
+            ll1.addView(dish_img_fl, 1);
+            dish1_fl2.addView(ll1);
+            dish1_fl.addView(dish1_fl2);
+            dish_linlay.addView(dish1_fl);
+            cat_ll.addView(dish_linlay);
+            j++;
+        }
+
+        return cat_ll;
     }
 }
