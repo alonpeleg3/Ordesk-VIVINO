@@ -34,7 +34,8 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:weightSum="1"
-                android:layout_height="100dp">
+                android:layout_height="100dp"
+                android:visibility="invisible">
 
                 <TextView
                     android:text="לבחירת פריטים מהתפריט לחצו על "
@@ -167,15 +168,22 @@
 
     </LinearLayout>
 
-    <ScrollView
+    <FrameLayout
         android:layout_width="780dp"
-        android:layout_marginTop="55dp"
-        android:id="@+id/Menu"
-        android:background="@drawable/kg0menu0background"
-        android:layout_height="545dp">
+        android:layout_height="match_parent"
+        android:background="@drawable/kg0page0background"
+        android:layout_marginTop="55dp">
+
+        <ScrollView
+            android:layout_marginTop="0dp"
+            android:id="@+id/Menu"
+            android:layout_marginStart="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="452dp">
 
 
-    </ScrollView>
+        </ScrollView>
+    </FrameLayout>
 
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->

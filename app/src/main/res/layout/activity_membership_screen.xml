@@ -34,7 +34,8 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:weightSum="1"
-                android:layout_height="100dp">
+                android:layout_height="100dp"
+                android:visibility="invisible">
 
                 <TextView
                     android:text="לבחירת פריטים מהתפריט לחצו על "
@@ -174,15 +175,169 @@
 
 
         <TextView
-            android:text="MEMBERSHIP VIEW"
+            android:text="מועדון חברים"
             android:textColor="#000000"
-            android:layout_width="444dp"
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:id="@+id/textView3"
             android:textSize="60sp"
-            android:layout_marginStart="150dp"
-            android:layout_marginTop="110dp" />
+            android:layout_marginStart="170dp"
+            android:layout_marginTop="35dp"
+            android:layout_width="440dp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/new_member_registration"
+            android:layout_marginTop="40dp"
+            android:visibility="visible">
+
+            <TextView
+                android:text="שם פרטי"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView2"
+                android:textColor="#ff000000"
+                android:textSize="17sp"
+                android:layout_marginStart="630dp"
+                android:layout_marginTop="180dp" />
+
+            <TextView
+                android:text="טופס הרשמה לחבר מועדון חדש"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView9"
+                android:textColor="#ff000000"
+                android:textSize="24sp"
+                android:layout_marginStart="390dp"
+                android:layout_marginTop="120dp" />
+
+            <TextView
+                android:text="כתובת מייל"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView22"
+                android:textColor="#ff000000"
+                android:textSize="17sp"
+                android:layout_marginStart="614dp"
+                android:layout_marginTop="300dp" />
+
+            <TextView
+                android:text="שם משפחה"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView13"
+                android:textColor="#ff000000"
+                android:textSize="17sp"
+                android:layout_marginStart="400dp"
+                android:layout_marginTop="180dp" />
+
+            <TextView
+                android:text="טלפון"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView12"
+                android:textColor="#ff000000"
+                android:textSize="17sp"
+                android:layout_marginStart="223dp"
+                android:layout_marginTop="180dp" />
+
+            <TextView
+                android:text="מס' זהות"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView7"
+                android:textColor="#ff000000"
+                android:textSize="17sp"
+                android:layout_marginStart="200dp"
+                android:layout_marginTop="300dp" />
+
+            <EditText
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text=""
+                android:ems="10"
+                android:id="@+id/editText_private_name"
+                android:backgroundTintMode="src_in"
+                android:background="#ffaaaaaa"
+                android:backgroundTint="#ffffffff"
+                android:padding="10dp"
+                android:textSize="17sp"
+                android:textColor="#ff000000"
+                android:textAlignment="viewEnd"
+                android:layout_marginStart="563dp"
+                android:layout_width="140dp"
+                android:layout_marginTop="210dp" />
+
+            <EditText
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text=""
+                android:ems="10"
+                android:id="@+id/editText_eMail"
+                android:backgroundTintMode="src_in"
+                android:background="#ffaaaaaa"
+                android:backgroundTint="#ffffffff"
+                android:padding="10dp"
+                android:textSize="17sp"
+                android:textColor="#ff000000"
+                android:textAlignment="viewEnd"
+                android:layout_marginStart="357dp"
+                android:layout_width="346dp"
+                android:layout_marginTop="325dp" />
+
+            <EditText
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName|phone"
+                android:text=""
+                android:ems="10"
+                android:id="@+id/editText_private_phone"
+                android:backgroundTintMode="src_in"
+                android:background="#ffaaaaaa"
+                android:backgroundTint="#ffffffff"
+                android:padding="10dp"
+                android:textSize="17sp"
+                android:textColor="#ff000000"
+                android:textAlignment="viewEnd"
+                android:layout_marginStart="130dp"
+                android:layout_width="140dp"
+                android:layout_marginTop="210dp" />
+
+            <EditText
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName|phone"
+                android:text=""
+                android:ems="10"
+                android:id="@+id/editText_IDnum"
+                android:backgroundTintMode="src_in"
+                android:background="#ffaaaaaa"
+                android:backgroundTint="#ffffffff"
+                android:padding="10dp"
+                android:textSize="17sp"
+                android:textColor="#ff000000"
+                android:textAlignment="viewEnd"
+                android:layout_marginStart="130dp"
+                android:layout_width="140dp"
+                android:layout_marginTop="325dp" />
+
+            <EditText
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text=""
+                android:ems="10"
+                android:id="@+id/editText_family_name"
+                android:backgroundTintMode="src_in"
+                android:background="#ffaaaaaa"
+                android:backgroundTint="#ffffffff"
+                android:padding="10dp"
+                android:textSize="17sp"
+                android:textColor="#ff000000"
+                android:textAlignment="viewEnd"
+                android:layout_marginStart="355dp"
+                android:layout_width="140dp"
+                android:layout_marginTop="210dp" />
+        </FrameLayout>
+
     </FrameLayout>
 
     <!-- This FrameLayout insets its children based on system windows using

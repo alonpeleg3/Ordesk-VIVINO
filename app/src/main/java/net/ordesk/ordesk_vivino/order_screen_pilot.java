@@ -506,25 +506,27 @@ public class order_screen_pilot extends AppCompatActivity {
         if(menu_type == 2)
         {
 
-            FrameLayout.LayoutParams scroll_lp = new FrameLayout.LayoutParams(780, FrameLayout.LayoutParams.WRAP_CONTENT);
-            scroll_lp.setMargins(0, 55, 0, 0);
+            FrameLayout.LayoutParams scroll_lp = new FrameLayout.LayoutParams(780, 440);
+            scroll_lp.setMargins(0, 51, 0,0);
             scroll_lp.setMarginStart(0);
             menu_scroll.setLayoutParams(scroll_lp);
             menu_scroll.setPadding(3,0,0,0);
-            menu_scroll.setBackgroundResource(R.drawable.kg0menu0background);
+            //menu_scroll.setBackgroundResource(R.drawable.kg0menu0background);
 
             FrameLayout activity_fl = (FrameLayout)menu_scroll.getParent();
             activity_fl.measure(0,0);
             LinearLayout cat_bar_linlay = new LinearLayout(this);
             cat_bar_linlay.setOrientation(LinearLayout.VERTICAL);
             FrameLayout.LayoutParams cat_bar_linlay_flp = new FrameLayout.LayoutParams(170,FrameLayout.LayoutParams.WRAP_CONTENT);
-            cat_bar_linlay_flp.setMargins(0,55,0,0);
+            cat_bar_linlay_flp.setMargins(0,0,0,0);
             cat_bar_linlay_flp.setMarginStart(610);
             cat_bar_linlay.setLayoutParams(cat_bar_linlay_flp);
 
             LinearLayout ll = new LinearLayout(this);
             ll.setOrientation(LinearLayout.VERTICAL);
-            FrameLayout.LayoutParams llp = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+            FrameLayout.LayoutParams llp = new FrameLayout.LayoutParams(680, ViewGroup.LayoutParams.MATCH_PARENT);
+            llp.setMargins(0,0,0,0);
+            llp.setMarginStart(45);
             ll.setLayoutParams(llp);
             menu_scroll.addView(ll,0);
 

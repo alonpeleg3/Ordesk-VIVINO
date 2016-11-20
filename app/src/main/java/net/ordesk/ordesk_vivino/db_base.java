@@ -21,7 +21,7 @@ public class db_base {
         JSONObject jsonObject;
         JSONArray jsonArray=null;
 
-        BackgroundWorker backgroundWorker=new BackgroundWorker(url,params);
+        BackgroundWorker backgroundWorker = new BackgroundWorker(url,params);
         try {
             json_string = backgroundWorker.execute().get();
             Log.i("INFO",json_string);
@@ -46,7 +46,7 @@ public class db_base {
     public item[] importMenuItems()
     {
         List<item> itemList = new ArrayList<item>();
-        JSONArray itemsArray = getJsonFromServer("http://ordesk.net/login.php");
+        JSONArray itemsArray = getJsonFromServer("http://www.ordesk.net/login.php");
         for (int i = 0; i < itemsArray.length(); i++) {
             JSONObject rec = null;
             try {

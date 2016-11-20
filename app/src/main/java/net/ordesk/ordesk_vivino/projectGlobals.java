@@ -7,6 +7,7 @@ import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
@@ -119,6 +120,10 @@ public class projectGlobals extends Application{
         {
             menu_ll_array[i] = new LinearLayout(this);
             menu_ll_array[i].setOrientation(LinearLayout.VERTICAL);
+            FrameLayout.LayoutParams llp = new FrameLayout.LayoutParams(680, ViewGroup.LayoutParams.MATCH_PARENT);
+            llp.setMargins(0,0,0,65);
+            llp.setMarginStart(45);
+            menu_ll_array[i].setLayoutParams(llp);
             i++;
         }
     }
@@ -335,14 +340,14 @@ public class projectGlobals extends Application{
                 //-----------------------------------------  Create Left Item  ---------------------------------------------//
 
                 FrameLayout dish1_fl = new FrameLayout(this);
-                FrameLayout.LayoutParams dish1_fl_flp = new FrameLayout.LayoutParams(555, 135);
+                FrameLayout.LayoutParams dish1_fl_flp = new FrameLayout.LayoutParams(505, 135);
                 dish1_fl_flp.setMargins(0, 20, 0, 10);
                 dish1_fl_flp.setMarginStart(70);
                 dish1_fl.setLayoutParams(dish1_fl_flp);
                 dish1_fl.setBackgroundColor(0xFF666666);
 
                 FrameLayout dish1_fl2 = new FrameLayout(this);
-                FrameLayout.LayoutParams dish1_fl2_flp = new FrameLayout.LayoutParams(545, 125);
+                FrameLayout.LayoutParams dish1_fl2_flp = new FrameLayout.LayoutParams(495, 125);
                 dish1_fl2_flp.setMargins(0, 5, 0, 0);
                 dish1_fl2_flp.setMarginStart(5);
                 dish1_fl2.setLayoutParams(dish1_fl2_flp);
@@ -354,7 +359,7 @@ public class projectGlobals extends Application{
                 ll1.setLayoutParams(ll1_llp);
 
                 LinearLayout ll2 = new LinearLayout(this);
-                LinearLayout.LayoutParams ll2_llp = new LinearLayout.LayoutParams(350, LinearLayout.LayoutParams.MATCH_PARENT);
+                LinearLayout.LayoutParams ll2_llp = new LinearLayout.LayoutParams(300, LinearLayout.LayoutParams.MATCH_PARENT);
                 ll2.setOrientation(LinearLayout.VERTICAL);
                 ll2.setLayoutParams(ll2_llp);
 
