@@ -1,5 +1,7 @@
 package net.ordesk.ordesk_vivino;
 
+import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,9 +23,11 @@ public class db_base {
 
         BackgroundWorker backgroundWorker=new BackgroundWorker(url,params);
         try {
-            json_string=backgroundWorker.execute().get();
-            jsonObject=new JSONObject(json_string);
-            jsonArray=jsonObject.getJSONArray("server_response");
+            json_string = backgroundWorker.execute().get();
+            Log.i("INFO",json_string);
+            Log.i("INFO",json_string.substring(json_string.indexOf("{"), json_string.lastIndexOf("}") + 1));
+            jsonObject = new JSONObject(json_string.substring(json_string.indexOf("{"), json_string.lastIndexOf("}") + 1));
+            jsonArray = jsonObject.getJSONArray("server_response");
 
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -47,17 +51,17 @@ public class db_base {
             JSONObject rec = null;
             try {
                 rec = itemsArray.getJSONObject(i);
-                int itemId=rec.getInt("Item_ID");
-                String itemTitle=rec.getString("Item_Name");
-                double itemPrice=rec.getDouble("Item_Price");
-                //String itemImageName=rec.getString("Item_Image_Name");
-                //int itemCategoryId=rec.getInt("Item_Category_Id");
-                itemList.add(new item(itemId,itemTitle,itemPrice));//,itemImageName,itemCategoryId
+                int itemId = rec.getInt("Item_ID");
+                String itemTitle = rec.getString("Item_Name");
+                double itemPrice = rec.getDouble("Item_Price");
+                String itemImageName = rec.getString("Item_Photo_Name");
+                String itemCategory = rec.getString("Item_Category");
+                itemList.add(new item(itemId,itemTitle,itemPrice,itemImageName,itemCategory));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
-        item[] items=new item[itemList.size()];
+        item[] items = new item[itemList.size()];
         itemList.toArray(items);
         return items;
     }

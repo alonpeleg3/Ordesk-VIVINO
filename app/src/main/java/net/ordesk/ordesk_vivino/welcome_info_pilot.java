@@ -2,15 +2,25 @@ package net.ordesk.ordesk_vivino;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
+
+import org.json.JSONArray;
+
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -103,8 +113,31 @@ public class welcome_info_pilot extends AppCompatActivity {
                 | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                 | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
 
+        Log.i("INFO", "activity_welcome_info_pilot started");
+
         final projectGlobals globalVariable = (projectGlobals)getApplicationContext();
         final boolean order_flag[] = globalVariable.getOrderArray();
+
+        findViewById(R.id.check_conn_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                db_base db_base = new db_base();
+                globalVariable.global_menu_items = db_base.importMenuItems();
+                item[] items =  globalVariable.global_menu_items;
+
+                int z=0;
+                while (z<items.length){
+                Toast.makeText(getApplicationContext(),items[z].getItemId()+"  "+items[z].getTitle()+"  "+items[z].getPrice()+"  "+items[z].getImageName()+"  "+items[z].getCategory() , Toast.LENGTH_SHORT).show();z++;}
+            }
+        });
+
+        findViewById(R.id.show_json_str_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(getApplicationContext(),globalVariable.global_menu_items[1].getCategory() , Toast.LENGTH_LONG).show();
+            }
+        });
 
         findViewById(R.id.info_menu_button).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,6 +171,45 @@ public class welcome_info_pilot extends AppCompatActivity {
             }
         });
 
+    }
+
+    public class AsyncTaskParseJson extends AsyncTask<String, String, String> {
+
+        final String TAG = "AsyncTaskParseJson.java";
+        final projectGlobals globalVariable = (projectGlobals)getApplicationContext();
+        public String parsedString = "";
+
+        // contacts JSONArray
+        JSONArray dataJsonArr = null;
+
+        @Override
+        protected void onPreExecute() {}
+
+        @Override
+        protected String doInBackground(String... arg0) {
+            try {
+
+                URL url = new URL("http://ordesk.net/login.php");
+                URLConnection conn = url.openConnection();
+
+                HttpURLConnection httpConn = (HttpURLConnection) conn;
+                httpConn.setAllowUserInteraction(false);
+                httpConn.setInstanceFollowRedirects(true);
+                httpConn.setRequestMethod("GET");
+                httpConn.connect();
+
+                InputStream is = httpConn.getInputStream();
+                parsedString = is.toString();
+                Log.i("INFO", "URL connection activated");
+                //parsedString = convertinputStreamToString(is);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            globalVariable.setJsonString(parsedString);
+            //Toast.makeText(getApplicationContext(), parsedString, Toast.LENGTH_SHORT).show();
+            return parsedString;
+        }
     }
 
     @Override

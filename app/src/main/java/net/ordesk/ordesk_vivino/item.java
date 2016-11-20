@@ -6,22 +6,24 @@ package net.ordesk.ordesk_vivino;
 
 public class item {
     private int itemId;
-    private String category;
     private String title;
     private double price;
     private String imageName;
-    private int categoryId;
+    private String category;
 
-    item(int itemId,String title,double price)//,String imageName,int categoryId)
+    item(int itemId,String title,double price,String imageName,String category)
     {
-        this.itemId=itemId;
-        this.title=title;
-        this.price=price;
-        this.imageName=imageName;
-        this.categoryId=categoryId;
+        this.itemId = itemId;
+        this.title = title;
+        this.price = price;
+        this.imageName = imageName;
+        this.category = category;
     }
 
+    public double getItemId() {return itemId;}
     public String getTitle() {return title;}
     public double getPrice() {return price;}
+    public String getImageName() {return imageName;}
+    public String getCategory() {return category;}
 
 }

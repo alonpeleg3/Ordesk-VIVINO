@@ -120,14 +120,20 @@ public class order_screen_pilot extends AppCompatActivity {
                 | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                 | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                 | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+
 //////******************************           MENU TYPE          ***************************///////////////
         int menu_type = 2;
 //////***************************************************************************************///////////////
 
+
         final projectGlobals globalVariable = (projectGlobals)getApplicationContext();
+        globalVariable.OrderBtnFlInit();
+        globalVariable.menu_ll_array_Init();
+        globalVariable.add2cart_btns_Init();
+        globalVariable.build_cat_ll();
+
         final menu_item menu_item_objects = new menu_item();
         int itemNum = globalVariable.getItemNum();
-        globalVariable.OrderBtnFlInit();
         globalVariable.setOrderScrnFL((FrameLayout)findViewById(R.id.order_framelayout));
 
             final String[] cat = globalVariable.getCategories();
@@ -504,6 +510,7 @@ public class order_screen_pilot extends AppCompatActivity {
             scroll_lp.setMargins(0, 55, 0, 0);
             scroll_lp.setMarginStart(0);
             menu_scroll.setLayoutParams(scroll_lp);
+            menu_scroll.setPadding(3,0,0,0);
             menu_scroll.setBackgroundResource(R.drawable.kg0menu0background);
 
             FrameLayout activity_fl = (FrameLayout)menu_scroll.getParent();
@@ -538,13 +545,15 @@ public class order_screen_pilot extends AppCompatActivity {
                 cat_btn.setTextColor(0xff000000);
                 cat_btn.setBackgroundColor(0x99878787);
 
-                item catTag = new item(0,cat[i],0);
+                item catTag = new item(0,cat[i],0,"","");
                 cat_btn.setTag(catTag);
 
                 cat_btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         ScrollView menu_scroll = (ScrollView)findViewById(R.id.Menu);
+                        menu_scroll.smoothScrollTo(0,0);
+                        menu_scroll.scrollTo(0,0);
                         LinearLayout ll = (LinearLayout)menu_scroll.getChildAt(0);
                         menu_scroll.removeView(ll);
 
@@ -557,7 +566,7 @@ public class order_screen_pilot extends AppCompatActivity {
                         }
                         v.setBackgroundColor(0x998787ff);
 
-                        ll = globalVariable.build_cat_ll(v);
+                        ll = globalVariable.show_cat_ll(v);
                         menu_scroll.addView(ll);
 
                     }

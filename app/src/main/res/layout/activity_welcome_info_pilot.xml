@@ -10,9 +10,26 @@
     <!-- The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,
          TextureView, etc. -->
+    <Button
+        android:text="Show Json String"
+        android:id="@+id/show_json_str_btn"
+        android:layout_marginStart="450dp"
+        android:layout_marginTop="400dp"
+        android:layout_width="193dp"
+        android:layout_height="112dp" />
+
+    <Button
+        android:text="Check Connection to Server"
+        android:layout_width="193dp"
+        android:layout_height="112dp"
+        android:id="@+id/check_conn_btn"
+        android:layout_marginTop="400dp"
+        android:layout_marginStart="100dp" />
+
     <FrameLayout android:layout_height="match_parent"
         android:layout_width="780dp"
-        android:layout_marginTop="65dp">
+        android:layout_marginTop="55dp"
+        android:background="@drawable/kg0page0background">
 
         <TextView
             android:text="here we enter basic info about the application and how to use  it"
@@ -21,7 +38,8 @@
             android:id="@+id/textView5"
             android:textSize="25sp"
             android:layout_marginTop="190dp"
-            android:layout_marginStart="200dp" />
+            android:layout_marginStart="200dp"
+            android:textColor="#ffaaaaaa" />
 
         <TextView
             android:text="INFO VIEW"
