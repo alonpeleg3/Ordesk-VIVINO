@@ -1,11 +1,14 @@
 package net.ordesk.ordesk_vivino;
 
+import android.content.Context;
 import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -24,10 +27,16 @@ public class db_base {
         BackgroundWorker backgroundWorker = new BackgroundWorker(url,params);
         try {
             json_string = backgroundWorker.execute().get();
-            Log.i("INFO",json_string);
-            Log.i("INFO",json_string.substring(json_string.indexOf("{"), json_string.lastIndexOf("}") + 1));
-            jsonObject = new JSONObject(json_string.substring(json_string.indexOf("{"), json_string.lastIndexOf("}") + 1));
-            jsonArray = jsonObject.getJSONArray("server_response");
+            if (json_string==null)
+            {
+
+            }
+            else {
+                Log.i("INFO", json_string);
+                Log.i("INFO", json_string.substring(json_string.indexOf("{"), json_string.lastIndexOf("}") + 1));
+                jsonObject = new JSONObject(json_string.substring(json_string.indexOf("{"), json_string.lastIndexOf("}") + 1));
+                jsonArray = jsonObject.getJSONArray("server_response");
+            }
 
         } catch (InterruptedException e) {
             e.printStackTrace();

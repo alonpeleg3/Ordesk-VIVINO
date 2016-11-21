@@ -106,6 +106,46 @@ public class membership_screen extends AppCompatActivity {
         final projectGlobals globalVariable = (projectGlobals)getApplicationContext();
         final boolean order_flag[] = globalVariable.getOrderArray();
 
+        findViewById(R.id.member_btns_fl).setVisibility(View.VISIBLE);
+        findViewById(R.id.new_member_reg_fl).setVisibility(View.INVISIBLE);
+        findViewById(R.id.exist_member_reg_fl).setVisibility(View.INVISIBLE);
+
+        findViewById(R.id.new_member_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                findViewById(R.id.member_btns_fl).setVisibility(View.INVISIBLE);
+                findViewById(R.id.new_member_reg_fl).setVisibility(View.VISIBLE);
+                findViewById(R.id.exist_member_reg_fl).setVisibility(View.INVISIBLE);
+            }
+        });
+
+        findViewById(R.id.existing_member_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                findViewById(R.id.member_btns_fl).setVisibility(View.INVISIBLE);
+                findViewById(R.id.new_member_reg_fl).setVisibility(View.INVISIBLE);
+                findViewById(R.id.exist_member_reg_fl).setVisibility(View.VISIBLE);
+            }
+        });
+
+        findViewById(R.id.exist_member_back_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                findViewById(R.id.member_btns_fl).setVisibility(View.VISIBLE);
+                findViewById(R.id.new_member_reg_fl).setVisibility(View.INVISIBLE);
+                findViewById(R.id.exist_member_reg_fl).setVisibility(View.INVISIBLE);
+            }
+        });
+
+        findViewById(R.id.sign_up_back).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                findViewById(R.id.member_btns_fl).setVisibility(View.VISIBLE);
+                findViewById(R.id.new_member_reg_fl).setVisibility(View.INVISIBLE);
+                findViewById(R.id.exist_member_reg_fl).setVisibility(View.INVISIBLE);
+            }
+        });
+
         findViewById(R.id.member_info_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
