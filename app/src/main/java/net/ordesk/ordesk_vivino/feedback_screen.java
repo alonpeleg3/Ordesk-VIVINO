@@ -11,6 +11,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
+
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -106,6 +110,10 @@ public class feedback_screen extends AppCompatActivity {
         final projectGlobals globalVariable = (projectGlobals)getApplicationContext();
         final boolean order_flag[] = globalVariable.getOrderArray();
 
+        findViewById(R.id.q1_btns_fl).setBackgroundResource(R.drawable.kg0feedback0buttons);
+        findViewById(R.id.q2_btns_fl).setBackgroundResource(R.drawable.kg0feedback0buttons);
+        findViewById(R.id.q3_btns_fl).setBackgroundResource(R.drawable.kg0feedback0buttons);
+
         findViewById(R.id.feedback_menu_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -138,6 +146,105 @@ public class feedback_screen extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.q1_good).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                findViewById(R.id.q1_btns_fl).setBackgroundResource(R.drawable.kg0feedback0buttons0good);
+                feedback_answers feedback_answers = new feedback_answers();
+                feedback_answers.set_ans(1,TRUE);
+            }
+        });
+
+        findViewById(R.id.q1_nuteral).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                findViewById(R.id.q1_btns_fl).setBackgroundResource(R.drawable.kg0feedback0buttons0nutetal);
+                feedback_answers feedback_answers = new feedback_answers();
+                feedback_answers.set_ans(1,TRUE);
+            }
+        });
+
+        findViewById(R.id.q1_bad).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                findViewById(R.id.q1_btns_fl).setBackgroundResource(R.drawable.kg0feedback0buttons0bad);
+                feedback_answers feedback_answers = new feedback_answers();
+                feedback_answers.set_ans(1,TRUE);
+            }
+        });
+
+        findViewById(R.id.q2_good).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                findViewById(R.id.q2_btns_fl).setBackgroundResource(R.drawable.kg0feedback0buttons0good);
+                feedback_answers feedback_answers = new feedback_answers();
+                feedback_answers.set_ans(2,TRUE);
+            }
+        });
+
+        findViewById(R.id.q2_nuteral).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                findViewById(R.id.q2_btns_fl).setBackgroundResource(R.drawable.kg0feedback0buttons0nutetal);
+                feedback_answers feedback_answers = new feedback_answers();
+                feedback_answers.set_ans(2,TRUE);
+            }
+        });
+
+        findViewById(R.id.q2_bad).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                findViewById(R.id.q2_btns_fl).setBackgroundResource(R.drawable.kg0feedback0buttons0bad);
+                feedback_answers feedback_answers = new feedback_answers();
+                feedback_answers.set_ans(2,TRUE);
+            }
+        });
+
+        findViewById(R.id.q3_good).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                findViewById(R.id.q3_btns_fl).setBackgroundResource(R.drawable.kg0feedback0buttons0good);
+                feedback_answers feedback_answers = new feedback_answers();
+                feedback_answers.set_ans(3,TRUE);
+            }
+        });
+
+        findViewById(R.id.q3_nuteral).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                findViewById(R.id.q3_btns_fl).setBackgroundResource(R.drawable.kg0feedback0buttons0nutetal);
+                feedback_answers feedback_answers = new feedback_answers();
+                feedback_answers.set_ans(3,TRUE);
+            }
+        });
+
+        findViewById(R.id.q3_bad).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                findViewById(R.id.q3_btns_fl).setBackgroundResource(R.drawable.kg0feedback0buttons0bad);
+                feedback_answers feedback_answers = new feedback_answers();
+                feedback_answers.set_ans(3,TRUE);
+            }
+        });
+
+        findViewById(R.id.send_feedback_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                feedback_answers feedback_answers = new feedback_answers();
+                if (feedback_answers.get_ans(1) && feedback_answers.get_ans(2) && feedback_answers.get_ans(3)) {
+                    Toast.makeText(getApplicationContext(), "המשוב נשלח בהצלחה! תודה.", Toast.LENGTH_SHORT).show();
+                    findViewById(R.id.q1_btns_fl).setBackgroundResource(R.drawable.kg0feedback0buttons);
+                    findViewById(R.id.q2_btns_fl).setBackgroundResource(R.drawable.kg0feedback0buttons);
+                    findViewById(R.id.q3_btns_fl).setBackgroundResource(R.drawable.kg0feedback0buttons);
+                    feedback_answers.set_ans(1,FALSE);
+                    feedback_answers.set_ans(2,FALSE);
+                    feedback_answers.set_ans(3,FALSE);
+                }
+                else{
+                    Toast.makeText(getApplicationContext(), "אנא ענה על כל השאלות לפני שליחה", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     @Override
