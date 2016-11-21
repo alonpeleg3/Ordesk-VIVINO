@@ -150,8 +150,7 @@ public class feedback_screen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 findViewById(R.id.q1_btns_fl).setBackgroundResource(R.drawable.kg0feedback0buttons0good);
-                feedback_answers feedback_answers = new feedback_answers();
-                feedback_answers.set_ans(1,TRUE);
+                globalVariable.feedback_answers.set_ans(1,TRUE);
             }
         });
 
@@ -159,8 +158,7 @@ public class feedback_screen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 findViewById(R.id.q1_btns_fl).setBackgroundResource(R.drawable.kg0feedback0buttons0nutetal);
-                feedback_answers feedback_answers = new feedback_answers();
-                feedback_answers.set_ans(1,TRUE);
+                globalVariable.feedback_answers.set_ans(1,TRUE);
             }
         });
 
@@ -168,8 +166,7 @@ public class feedback_screen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 findViewById(R.id.q1_btns_fl).setBackgroundResource(R.drawable.kg0feedback0buttons0bad);
-                feedback_answers feedback_answers = new feedback_answers();
-                feedback_answers.set_ans(1,TRUE);
+                globalVariable.feedback_answers.set_ans(1,TRUE);
             }
         });
 
@@ -177,8 +174,7 @@ public class feedback_screen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 findViewById(R.id.q2_btns_fl).setBackgroundResource(R.drawable.kg0feedback0buttons0good);
-                feedback_answers feedback_answers = new feedback_answers();
-                feedback_answers.set_ans(2,TRUE);
+                globalVariable.feedback_answers.set_ans(2,TRUE);
             }
         });
 
@@ -186,8 +182,7 @@ public class feedback_screen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 findViewById(R.id.q2_btns_fl).setBackgroundResource(R.drawable.kg0feedback0buttons0nutetal);
-                feedback_answers feedback_answers = new feedback_answers();
-                feedback_answers.set_ans(2,TRUE);
+                globalVariable.feedback_answers.set_ans(2,TRUE);
             }
         });
 
@@ -195,8 +190,7 @@ public class feedback_screen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 findViewById(R.id.q2_btns_fl).setBackgroundResource(R.drawable.kg0feedback0buttons0bad);
-                feedback_answers feedback_answers = new feedback_answers();
-                feedback_answers.set_ans(2,TRUE);
+                globalVariable.feedback_answers.set_ans(2,TRUE);
             }
         });
 
@@ -204,8 +198,7 @@ public class feedback_screen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 findViewById(R.id.q3_btns_fl).setBackgroundResource(R.drawable.kg0feedback0buttons0good);
-                feedback_answers feedback_answers = new feedback_answers();
-                feedback_answers.set_ans(3,TRUE);
+                globalVariable.feedback_answers.set_ans(3,TRUE);
             }
         });
 
@@ -213,8 +206,7 @@ public class feedback_screen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 findViewById(R.id.q3_btns_fl).setBackgroundResource(R.drawable.kg0feedback0buttons0nutetal);
-                feedback_answers feedback_answers = new feedback_answers();
-                feedback_answers.set_ans(3,TRUE);
+                globalVariable.feedback_answers.set_ans(3,TRUE);
             }
         });
 
@@ -222,23 +214,21 @@ public class feedback_screen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 findViewById(R.id.q3_btns_fl).setBackgroundResource(R.drawable.kg0feedback0buttons0bad);
-                feedback_answers feedback_answers = new feedback_answers();
-                feedback_answers.set_ans(3,TRUE);
+                globalVariable.feedback_answers.set_ans(3,TRUE);
             }
         });
 
         findViewById(R.id.send_feedback_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                feedback_answers feedback_answers = new feedback_answers();
-                if (feedback_answers.get_ans(1) && feedback_answers.get_ans(2) && feedback_answers.get_ans(3)) {
+                if (globalVariable.feedback_answers.get_ans(1) && globalVariable.feedback_answers.get_ans(2) && globalVariable.feedback_answers.get_ans(3)) {
                     Toast.makeText(getApplicationContext(), "המשוב נשלח בהצלחה! תודה.", Toast.LENGTH_SHORT).show();
                     findViewById(R.id.q1_btns_fl).setBackgroundResource(R.drawable.kg0feedback0buttons);
                     findViewById(R.id.q2_btns_fl).setBackgroundResource(R.drawable.kg0feedback0buttons);
                     findViewById(R.id.q3_btns_fl).setBackgroundResource(R.drawable.kg0feedback0buttons);
-                    feedback_answers.set_ans(1,FALSE);
-                    feedback_answers.set_ans(2,FALSE);
-                    feedback_answers.set_ans(3,FALSE);
+                    globalVariable.feedback_answers.set_ans(1,FALSE);
+                    globalVariable.feedback_answers.set_ans(2,FALSE);
+                    globalVariable.feedback_answers.set_ans(3,FALSE);
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "אנא ענה על כל השאלות לפני שליחה", Toast.LENGTH_SHORT).show();

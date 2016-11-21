@@ -6,11 +6,14 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -143,6 +146,36 @@ public class membership_screen extends AppCompatActivity {
                 findViewById(R.id.member_btns_fl).setVisibility(View.VISIBLE);
                 findViewById(R.id.new_member_reg_fl).setVisibility(View.INVISIBLE);
                 findViewById(R.id.exist_member_reg_fl).setVisibility(View.INVISIBLE);
+            }
+        });
+
+        findViewById(R.id.sign_up_ok).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String memb_priv_name = ((EditText)findViewById(R.id.editText_private_name)).getText().toString();
+                String memb_fam_name = ((EditText)findViewById(R.id.editText_family_name)).getText().toString();
+                String memb_eMail = ((EditText)findViewById(R.id.editText_eMail)).getText().toString();
+                String memb_phon_num = ((EditText)findViewById(R.id.editText_private_phone)).getText().toString();
+                String memb_id_num = ((EditText)findViewById(R.id.editText_IDnum)).getText().toString();
+
+                /*
+                Here we should insert some test to see that the input is ok
+                 */
+
+                ((EditText)findViewById(R.id.editText_private_name)).setText("");
+                ((EditText)findViewById(R.id.editText_family_name)).setText("");
+                ((EditText)findViewById(R.id.editText_eMail)).setText("");
+                ((EditText)findViewById(R.id.editText_private_phone)).setText("");
+                ((EditText)findViewById(R.id.editText_IDnum)).setText("");
+
+                Toast.makeText(getApplicationContext(),memb_priv_name+", "+memb_fam_name+", "+memb_eMail+", "+memb_phon_num+", "+memb_id_num, Toast.LENGTH_SHORT).show();
+
+                mContentView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LOW_PROFILE
+                        | View.SYSTEM_UI_FLAG_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
             }
         });
 

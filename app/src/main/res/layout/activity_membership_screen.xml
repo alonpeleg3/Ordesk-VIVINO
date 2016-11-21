@@ -214,7 +214,7 @@
             android:layout_height="match_parent"
             android:id="@+id/new_member_reg_fl"
             android:layout_marginTop="40dp"
-            android:visibility="invisible">
+            android:visibility="visible">
 
             <Button
                 android:text="הירשם"
@@ -386,7 +386,7 @@
             android:layout_height="match_parent"
             android:id="@+id/exist_member_reg_fl"
             android:layout_marginTop="40dp"
-            android:visibility="visible">
+            android:visibility="invisible">
 
             <Button
                 android:layout_height="wrap_content"

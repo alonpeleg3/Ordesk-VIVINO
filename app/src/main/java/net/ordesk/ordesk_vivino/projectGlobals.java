@@ -41,6 +41,7 @@ public class projectGlobals extends Application{
     private ImageButton[] add2cart_btns = new ImageButton[menu_item_num];
 
     public String json_string = "nothing yet";
+    feedback_answers feedback_answers = new feedback_answers();
 
     private LinearLayout menu_ll = null;
     final String[] menu_categories = {"פתיחה","ראשונות","פסטות","סלטים","עיקריות","קינוחים","שתיה קלה","אלכוהול"};
